@@ -1817,8 +1817,8 @@ f:jayce/com/learn2crack/nfc/MainActivity$1.jayce
 f:jayce/com/learn2crack/nfc/NFCWriteFragment.jayce
 f:jayce/com/learn2crack/nfc/MainActivity$5.jayce
 f:jayce/com/learn2crack/nfc/R$styleable.jayce
-f:jayce/com/learn2crack/nfc/MainActivity$4.jayce
 f:jayce/com/learn2crack/nfc/NFCReadFragment.jayce
+f:jayce/com/learn2crack/nfc/MainActivity$4.jayce
 f:jayce/android/support/annotation/AnimatorRes.jayce
 f:jayce/android/support/annotation/StyleRes.jayce
 f:jayce/android/support/annotation/FractionRes.jayce
@@ -2217,8 +2217,8 @@ f:jayce/android/support/v7/appcompat/R$color.jayce
 f:jayce/android/support/v7/appcompat/R$dimen.jayce
 f:jayce/android/support/v7/appcompat/BuildConfig.jayce
 f:jayce/android/support/v7/appcompat/R$string.jayce
-f:jayce/android/support/v7/appcompat/R.jayce
 f:jayce/android/support/v7/appcompat/R$anim.jayce
+f:jayce/android/support/v7/appcompat/R.jayce
 f:jayce/android/support/v7/appcompat/R$integer.jayce
 f:jayce/android/support/v7/appcompat/R$bool.jayce
 f:jayce/android/support/v7/appcompat/R$drawable.jayce

@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements Listener{
 
         final String tagId = mId;
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/testmysql.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
