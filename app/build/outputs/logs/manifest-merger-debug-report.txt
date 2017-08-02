@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:2:1-22:12
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:2:1-26:12
 	package
 		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml
@@ -17,8 +17,20 @@ uses-permission#android.permission.NFC
 ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:5:5-62
 	android:name
 		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:5:22-59
+uses-permission#android.permission.INTERNET
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:8:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:9:5-76
+	android:name
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:9:22-73
 application
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:7:5-20:19
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:11:5-24:19
 MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\Aniwat\.android\build-cache\2eec04795b0c5570468eed299405163ac5a199fb\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:25.0.0] C:\Users\Aniwat\.android\build-cache\a3439094c8b9318d82e3910f7fe4c00c4b3a3e8d\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-fragment:25.0.0] C:\Users\Aniwat\.android\build-cache\5ebe2692277905e6ca7e431de5e73526e54709e2\output\AndroidManifest.xml:25:5-20
@@ -28,30 +40,31 @@ MERGED from [com.android.support:support-core-utils:25.0.0] C:\Users\Aniwat\.and
 MERGED from [com.android.support:animated-vector-drawable:25.0.0] C:\Users\Aniwat\.android\build-cache\7cbf264e33ec80e8a4ecc3df7a0bcc8cc3568368\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-vector-drawable:25.0.0] C:\Users\Aniwat\.android\build-cache\50ec6a9facf2abbe466f940fc154bcffadebadc7\output\AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:support-compat:25.0.0] C:\Users\Aniwat\.android\build-cache\cea671263fcfb227c5b7e607f589c5057b608e9b\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\Aniwat\.android\build-cache\ccaf5b95a5575250add301ad900ba6a1b653805a\output\AndroidManifest.xml:9:5-20
 	android:label
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:10:9-41
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:14:9-41
 	android:supportsRtl
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:15:9-35
 	android:allowBackup
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:8:9-35
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:12:9-35
 	android:icon
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:9:9-43
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:13:9-43
 	android:theme
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:12:9-40
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:16:9-40
 activity#com.learn2crack.nfc.MainActivity
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:13:9-19:20
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:17:9-23:20
 	android:name
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:13:19-47
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:17:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:14:13-18:29
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:18:13-22:29
 action#android.intent.action.MAIN
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:15:17-69
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:15:25-66
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:17:17-77
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:17:27-74
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:21:27-74
 uses-sdk
 INJECTED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\Aniwat\.android\build-cache\2eec04795b0c5570468eed299405163ac5a199fb\output\AndroidManifest.xml:21:5-23:78
@@ -63,6 +76,7 @@ MERGED from [com.android.support:support-core-utils:25.0.0] C:\Users\Aniwat\.and
 MERGED from [com.android.support:animated-vector-drawable:25.0.0] C:\Users\Aniwat\.android\build-cache\7cbf264e33ec80e8a4ecc3df7a0bcc8cc3568368\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.0.0] C:\Users\Aniwat\.android\build-cache\50ec6a9facf2abbe466f940fc154bcffadebadc7\output\AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:support-compat:25.0.0] C:\Users\Aniwat\.android\build-cache\cea671263fcfb227c5b7e607f589c5057b608e9b\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\Aniwat\.android\build-cache\ccaf5b95a5575250add301ad900ba6a1b653805a\output\AndroidManifest.xml:7:5-43
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.0.0] C:\Users\Aniwat\.android\build-cache\2eec04795b0c5570468eed299405163ac5a199fb\output\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion

@@ -62,6 +62,12 @@
         <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-32e7c1f95f9158a22396f6e0ea5e7d0459ddbe32.jar" />
     </item>
     <item
+        jar="C:\Users\Aniwat\.android\build-cache\ccaf5b95a5575250add301ad900ba6a1b653805a\output\jars\classes.jar"
+        revision="25.0.0"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-19fe87fe9491418ead1492e1c6edd46354a3e7d7.jar" />
+    </item>
+    <item
         jar="C:\Users\Aniwat\.android\build-cache\8bd66d423c86facf143eb75f77be47e24295ebc7\output\jars\libs\internal_impl-25.0.0.jar"
         revision="25.0.0"
         sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">

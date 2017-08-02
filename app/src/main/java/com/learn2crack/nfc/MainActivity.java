@@ -23,21 +23,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.android.volley.DefaultRetryPolicy;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.HttpURLConnection;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.io.StringWriter;
-import java.io.BufferedOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements Listener{
     
@@ -70,8 +67,15 @@ public class MainActivity extends AppCompatActivity implements Listener{
         mBtWrite = (Button) findViewById(R.id.btn_write);
         mBtRead = (Button) findViewById(R.id.btn_read);
 
-        mBtWrite.setOnClickListener(view -> showWriteFragment());
-        mBtRead.setOnClickListener(view -> showReadFragment());
+        //mBtWrite.setOnClickListener(view -> showWriteFragment());
+        //mBtRead.setOnClickListener(view -> showReadFragment());
+        mBtRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String mId = mEtMessage.getText().toString();
+                trySend(mId);
+            }
+        });
     }
 
     private void initNFC(){
@@ -164,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements Listener{
             }
             //mEtMessage.setText(tag.getId().toString());
             mEtMessage.setText(hexdump);
-            mBtWrite.setOnClickListener(new View.OnClickListener() {
+            mBtRead.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String mId = mEtMessage.getText().toString();
@@ -188,111 +192,37 @@ public class MainActivity extends AppCompatActivity implements Listener{
         }
     }
 
-    protected void trySend(String mId)
+    private void trySend(String mId)
     {
 
         Log.d("ADebugTag", "Value: " + mId );
 
-        BufferedReader reader = null;
-        String response = "";
-        try {
-            String data = URLEncoder.encode("name", "UTF-8")
-                    + "=" + URLEncoder.encode(mId, "UTF-8");
-            // Defined URL  where to send data
-            //URL url = new URL("http://esm.erdi.cmu.ac.th/site11/service/service.php"); //see this file below
-            URL url = new URL("http://localhost/testmysql.php"); //see this file below
+        final String tagId = mId;
 
-            // Send POST data request
-            //URLConnection conn = url.openConnection();
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            //conn.setDoInput(true);
-            conn.setDoOutput(true);
-            //conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            try{
-                OutputStream os = conn.getOutputStream();
-                //OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-                StringWriter sw = new StringWriter();
-                //BufferedWriter wr = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                //BufferedWriter wr = new BufferedWriter(sw);
-                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-                wr.write(data);
-                //Log.d("ADebugTag3", "Value Sent!!!");
-                wr.flush();
-                wr.close();
-                os.close();
-                Log.d("ADebugTag2", "Value: Sent!!!");
-
-            } catch(Exception ex) { Log.e("MYAPP", "exception", ex); }
-            Log.d("ADebugTag3", "Value: Close!!!");
-
-            // Get the server response
-            int responseCode = conn.getResponseCode();
-
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                String line;
-                BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                while ((line = br.readLine()) != null) {
-                    response += line;
-                }
-            } else {
-                response = "";
-
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/testmysql.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("JsonObject Response",response.toString());
+                Toast.makeText(MainActivity.this,response,Toast.LENGTH_LONG).show();
             }
-            /*reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            StringBuilder sb = new StringBuilder();
-            String line = null;
-
-            // Read Server Response
-            while((line = reader.readLine()) != null) {
-                // Append server response in string
-                sb.append(line + "\n");
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this,error.toString(),Toast.LENGTH_LONG).show();
             }
-            reader.close();
-            String responseData = sb.toString();
-            Log.d("Respond: ", responseData);*/
-        }
-        catch(Exception ex) {}
-
-
-        /*HttpURLConnection connection;
-        OutputStreamWriter request = null;
-
-        URL url = null;
-        String response = null;
-        String parameters = "id="+mId;
-
-        try
-        {
-            url = new URL("http://esm.erdi.cmu.ac.th/site11/service/service.php");
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
-            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            connection.setRequestMethod("POST");
-
-            request = new OutputStreamWriter(connection.getOutputStream());
-            request.write(parameters);
-            request.flush();
-            request.close();
-            String line = "";
-            InputStreamReader isr = new InputStreamReader(connection.getInputStream());
-            BufferedReader reader = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-            while ((line = reader.readLine()) != null)
-            {
-                sb.append(line + "\n");
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("sendId" ,tagId);
+                //Log.d("ShowTag", "Value: " + tagId );
+                return params;
             }
-            // Response from server after login process will be stored in response variable.
-            response = sb.toString();
-            // You can perform UI operations here
-            Toast.makeText(this,"Message from Server: \n"+ response, Toast.LENGTH_SHORT).show();
-            isr.close();
-            reader.close();
+        };
 
-        }
-        catch(IOException e)
-        {
-            // Error
-        }*/
+       //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 }
