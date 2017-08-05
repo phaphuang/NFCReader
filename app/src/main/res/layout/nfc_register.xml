@@ -11,21 +11,27 @@
     android:gravity="center"
     tools:context="com.learn2crack.nfc.MainActivity">
 
+    <EditText
+        android:id="@+id/et_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_message"/>
+
     <Button
-        android:id="@+id/btn_1"
+        android:id="@+id/btn_write"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_message"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="GO TO NFC PAGE"
+        android:text="@string/message_write_tag"
         style="@style/Widget.AppCompat.Button.Colored"/>
 
     <Button
-        android:id="@+id/btn_2"
+        android:id="@+id/btn_read"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_1"
+        android:layout_below="@+id/btn_write"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="GO TO USER PAGE"
+        android:text="@string/message_read_tag"
         style="@style/Widget.AppCompat.Button.Colored"/>
 </RelativeLayout>
