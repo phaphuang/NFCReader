@@ -11,31 +11,34 @@
     android:gravity="center"
     tools:context="com.learn2crack.nfc.MainActivity">
 
-    <Button
-        android:id="@+id/btn_allusers"
+    <EditText
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_message"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="ALL USERS"
-        style="@style/Widget.AppCompat.Button.Colored"/>
+        android:hint="USERNAME"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:hint="PASSWORD"/>
 
     <Button
-        android:id="@+id/btn_sell"
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_allusers"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="SELL FOOD AND BEVERAGE"
-        style="@style/Widget.AppCompat.Button.Colored"/>
-
-    <Button
-        android:id="@+id/btn_login_staff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_sell"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/password"
         android:text="LOGIN"
+        style="@style/Widget.AppCompat.Button.Colored"/>
+
+    <Button
+        android:id="@+id/btn_register_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_login"
+        android:text="BACK"
         style="@style/Widget.AppCompat.Button.Colored"/>
 
 </RelativeLayout>

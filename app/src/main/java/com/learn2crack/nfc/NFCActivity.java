@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -41,6 +42,8 @@ public class NFCActivity extends AppCompatActivity implements Listener{
     private EditText mEtMessage;
     private Button mBtWrite;
     private Button mBtRead;
+    private TextView mNfcId;
+    private Button mBtnDoSearch;
 
     private NFCWriteFragment mNfcWriteFragment;
     private NFCReadFragment mNfcReadFragment;
@@ -61,19 +64,31 @@ public class NFCActivity extends AppCompatActivity implements Listener{
 
     private void initViews() {
 
-        mEtMessage = (EditText) findViewById(R.id.et_message);
-        mBtWrite = (Button) findViewById(R.id.btn_write);
-        mBtRead = (Button) findViewById(R.id.btn_read);
+        // mEtMessage = (EditText) findViewById(R.id.et_message);
+        // mBtWrite = (Button) findViewById(R.id.btn_write);
+        // mBtRead = (Button) findViewById(R.id.btn_read);
+        //mBtnMenu = (Button) findViewById(R.id.btn_mainmenu);
+        mNfcId = (TextView) findViewById(R.id.text_scan_to_search_nfc);
+        mBtnDoSearch = (Button) findViewById(R.id.btn_search_by_nfc_id);
+
+        mBtnDoSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         //mBtWrite.setOnClickListener(view -> showWriteFragment());
         //mBtRead.setOnClickListener(view -> showReadFragment());
-        mBtRead.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String mId = mEtMessage.getText().toString();
-                trySend(mId);
-            }
-        });
+//        mBtRead.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String mId = mEtMessage.getText().toString();
+//                trySend(mId);
+//            }
+//        });
     }
 
     private void initNFC(){
@@ -165,14 +180,16 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                 hexdump += x + ' ';
             }
             //mEtMessage.setText(tag.getId().toString());
-            mEtMessage.setText(hexdump);
-            mBtRead.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String mId = mEtMessage.getText().toString();
-                    trySend(mId);
-                }
-            });
+            // mEtMessage.setText(hexdump);
+            mNfcId.setText(hexdump);
+            mBtnDoSearch.setEnabled(true);
+//            mBtRead.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    String mId = mEtMessage.getText().toString();
+//                    trySend(mId);
+//                }
+//            });
             /*if (isDialogDisplayed) {
 
                 if (isWrite) {
@@ -222,5 +239,11 @@ public class NFCActivity extends AppCompatActivity implements Listener{
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    public void backToMainMenu(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
