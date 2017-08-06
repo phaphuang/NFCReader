@@ -70,7 +70,6 @@
             android:text="DECUCT AMOUNT : "
             android:textSize="20dp"
             android:gravity="center"
-            android:inputType="number"
             android:layout_alignBottom="@+id/amount_deduct" />
 
         <EditText
@@ -79,6 +78,7 @@
             android:layout_height="wrap_content"
             android:hint=""
             android:maxEms="4"
+            android:inputType="number"
             android:layout_below="@+id/add_money"
             android:layout_toRightOf="@+id/deduct_money"/>
 
