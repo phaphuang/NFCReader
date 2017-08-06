@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class TopupActivity extends AppCompatActivity {
     
     public static final String TAG = TopupActivity.class.getSimpleName();
@@ -17,6 +19,7 @@ public class TopupActivity extends AppCompatActivity {
     private TextView mCurrentBalance;
     private EditText mAmountTopup;
     private EditText mAmountDeduct;
+    private TextView mUserName;
     private Button mProceed;
 
     @Override
@@ -28,21 +31,24 @@ public class TopupActivity extends AppCompatActivity {
         mAmountTopup = (EditText) findViewById(R.id.amount_top_up);
         mAmountDeduct = (EditText) findViewById(R.id.amount_deduct);
         mProceed = (Button) findViewById(R.id.btn_proceed);
+        mUserName = (TextView) findViewById(R.id.username);
 
         String nfcId = getIntent().getStringExtra("NFCID");
-        String user = getIntent().getStringExtra("user");
+        String firstName = getIntent().getStringExtra("FIRST_NAME");
+        String lastName = getIntent().getStringExtra("LAST_NAME");
+        String currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
 
         if (nfcId != null) {
             Toast.makeText(this, "Top up with nfc id: " + nfcId, Toast.LENGTH_SHORT).show();
         }
 
-        if (user != null) {
-            Toast.makeText(this, "Top up with user id: " + user, Toast.LENGTH_SHORT).show();
+        if (firstName != null) {
+            Toast.makeText(this, "Top up with user id: " + firstName, Toast.LENGTH_SHORT).show();
         }
 
         // SEND AJAX TO GET CURRENT BALANCE
-
-        mCurrentBalance.setText("CURRENT BALANCE : 2800");
+        mUserName.setText(firstName + " " + lastName);
+        mCurrentBalance.setText("CURRENT BALANCE : " + currentBalance);
 
         mProceed.setOnClickListener(new View.OnClickListener() {
             @Override

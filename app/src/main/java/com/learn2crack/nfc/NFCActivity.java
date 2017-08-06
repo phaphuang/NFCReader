@@ -30,6 +30,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,6 +55,10 @@ public class NFCActivity extends AppCompatActivity implements Listener{
     private boolean isDialogDisplayed = false;
     private boolean isWrite = false;
 
+    private String currentBalance = "";
+    private String firstName = "";
+    private String lastName = "";
+
     private NfcAdapter mNfcAdapter;
 
     @Override
@@ -64,10 +72,6 @@ public class NFCActivity extends AppCompatActivity implements Listener{
 
     private void initViews() {
 
-        // mEtMessage = (EditText) findViewById(R.id.et_message);
-        // mBtWrite = (Button) findViewById(R.id.btn_write);
-        // mBtRead = (Button) findViewById(R.id.btn_read);
-        //mBtnMenu = (Button) findViewById(R.id.btn_mainmenu);
         mNfcId = (TextView) findViewById(R.id.text_scan_to_search_nfc);
         mBtnDoSearch = (Button) findViewById(R.id.btn_search_by_nfc_id);
 
@@ -76,52 +80,18 @@ public class NFCActivity extends AppCompatActivity implements Listener{
             public void onClick(View v) {
                 Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
                 intent.putExtra("NFCID", mNfcId.getText().toString());
+                intent.putExtra("FIRST_NAME", firstName);
+                intent.putExtra("LAST_NAME", lastName);
+                intent.putExtra("CURRENT_BALANCE", currentBalance);
                 startActivity(intent);
                 finish();
             }
         });
-
-        //mBtWrite.setOnClickListener(view -> showWriteFragment());
-        //mBtRead.setOnClickListener(view -> showReadFragment());
-//        mBtRead.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String mId = mEtMessage.getText().toString();
-//                trySend(mId);
-//            }
-//        });
     }
 
     private void initNFC(){
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
-    }
-
-
-    private void showWriteFragment() {
-
-        isWrite = true;
-
-        mNfcWriteFragment = (NFCWriteFragment) getFragmentManager().findFragmentByTag(NFCWriteFragment.TAG);
-
-        if (mNfcWriteFragment == null) {
-
-            mNfcWriteFragment = NFCWriteFragment.newInstance();
-        }
-        mNfcWriteFragment.show(getFragmentManager(),NFCWriteFragment.TAG);
-
-    }
-
-    private void showReadFragment() {
-
-        mNfcReadFragment = (NFCReadFragment) getFragmentManager().findFragmentByTag(NFCReadFragment.TAG);
-
-        if (mNfcReadFragment == null) {
-
-            mNfcReadFragment = NFCReadFragment.newInstance();
-        }
-        mNfcReadFragment.show(getFragmentManager(),NFCReadFragment.TAG);
-
     }
 
     @Override
@@ -167,7 +137,6 @@ public class NFCActivity extends AppCompatActivity implements Listener{
 
         if(tag != null) {
             Toast.makeText(this, getString(R.string.message_tag_detected), Toast.LENGTH_SHORT).show();
-            Ndef ndef = Ndef.get(tag);
 
             //Log.d(TAG, "tag ID = " + tag.getId().toString());
             //String textId = tag.getId().toString();
@@ -180,35 +149,12 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                 }
                 hexdump += x + ' ';
             }
-            //mEtMessage.setText(tag.getId().toString());
-            // mEtMessage.setText(hexdump);
             mNfcId.setText(hexdump);
-            mBtnDoSearch.setEnabled(true);
-//            mBtRead.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    String mId = mEtMessage.getText().toString();
-//                    trySend(mId);
-//                }
-//            });
-            /*if (isDialogDisplayed) {
-
-                if (isWrite) {
-
-                    String messageToWrite = mEtMessage.getText().toString();
-                    mNfcWriteFragment = (NFCWriteFragment) getFragmentManager().findFragmentByTag(NFCWriteFragment.TAG);
-                    mNfcWriteFragment.onNfcDetected(ndef,messageToWrite);
-
-                } else {
-
-                    mNfcReadFragment = (NFCReadFragment)getFragmentManager().findFragmentByTag(NFCReadFragment.TAG);
-                    mNfcReadFragment.onNfcDetected(ndef);
-                }
-            }*/
+            sendRequestJson(hexdump);
         }
     }
 
-    private void trySend(String mId)
+    private void sendRequestJson(String mId)
     {
 
         Log.d("ADebugTag", "Value: " + mId );
@@ -220,6 +166,20 @@ public class NFCActivity extends AppCompatActivity implements Listener{
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
                 Toast.makeText(NFCActivity.this,response,Toast.LENGTH_LONG).show();
+                try {
+                    JSONObject obj = new JSONObject(response.toString());
+                    JSONArray dataArray = obj.getJSONArray("data");
+
+                    JSONObject finalObject = dataArray.getJSONObject(0);
+                    firstName = finalObject.getString("f_name");
+                    lastName = finalObject.getString("l_name");
+                    currentBalance = finalObject.getString("current_amt");
+                    //Toast.makeText(NFCSellActivity.this, currentAmount, Toast.LENGTH_SHORT).show();
+                    mBtnDoSearch.setEnabled(true);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -230,13 +190,14 @@ public class NFCActivity extends AppCompatActivity implements Listener{
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
+                params.put("action", "QUERYTOPUP");
                 params.put("sendId" ,tagId);
                 //Log.d("ShowTag", "Value: " + tagId );
                 return params;
             }
         };
 
-       //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
