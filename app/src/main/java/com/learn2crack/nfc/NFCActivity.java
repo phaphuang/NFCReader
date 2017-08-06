@@ -75,6 +75,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
+                intent.putExtra("NFCID", mNfcId.getText().toString());
                 startActivity(intent);
                 finish();
             }

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.nfc.adapter.CustomAdapter;
 
@@ -50,7 +51,16 @@ public class UsersListActivity extends AppCompatActivity {
         ListView listView = (ListView)findViewById(R.id.listViewUsers);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String user = USERS[position];
+
+                Toast.makeText(UsersListActivity.this, "Click item " + position + " which is " + USERS[position], Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
 
             }
         });

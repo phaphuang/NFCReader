@@ -29,6 +29,17 @@ public class TopupActivity extends AppCompatActivity {
         mAmountDeduct = (EditText) findViewById(R.id.amount_deduct);
         mProceed = (Button) findViewById(R.id.btn_proceed);
 
+        String nfcId = getIntent().getStringExtra("NFCID");
+        String user = getIntent().getStringExtra("user");
+
+        if (nfcId != null) {
+            Toast.makeText(this, "Top up with nfc id: " + nfcId, Toast.LENGTH_SHORT).show();
+        }
+
+        if (user != null) {
+            Toast.makeText(this, "Top up with user id: " + user, Toast.LENGTH_SHORT).show();
+        }
+
         // SEND AJAX TO GET CURRENT BALANCE
 
         mCurrentBalance.setText("CURRENT BALANCE : 2800");
