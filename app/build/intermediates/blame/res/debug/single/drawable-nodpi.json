@@ -1,6 +1,14 @@
 [
     {
+        "merged": "F:\\GitHub\\project\\android-nfc-tag-read-write-master\\NFC\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\plus.png",
+        "source": "F:\\GitHub\\project\\android-nfc-tag-read-write-master\\NFC\\app\\src\\main\\res\\drawable-nodpi\\plus.png"
+    },
+    {
         "merged": "F:\\GitHub\\project\\android-nfc-tag-read-write-master\\NFC\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\ic_nfc.png",
         "source": "F:\\GitHub\\project\\android-nfc-tag-read-write-master\\NFC\\app\\src\\main\\res\\drawable-nodpi\\ic_nfc.png"
+    },
+    {
+        "merged": "F:\\GitHub\\project\\android-nfc-tag-read-write-master\\NFC\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi\\minus.png",
+        "source": "F:\\GitHub\\project\\android-nfc-tag-read-write-master\\NFC\\app\\src\\main\\res\\drawable-nodpi\\minus.png"
     }
 ]

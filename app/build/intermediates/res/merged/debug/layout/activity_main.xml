@@ -11,27 +11,30 @@
     android:gravity="center"
     tools:context="com.learn2crack.nfc.MainActivity">
 
-    <EditText
-        android:id="@+id/et_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_message"/>
-
     <Button
-        android:id="@+id/btn_write"
+        android:id="@+id/btn_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_message"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="@string/message_write_tag"
+        android:text="GO TO NFC PAGE"
         style="@style/Widget.AppCompat.Button.Colored"/>
 
     <Button
-        android:id="@+id/btn_read"
+    android:id="@+id/btn_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/btn_1"
+    android:layout_marginTop="@dimen/activity_horizontal_margin"
+    android:text="GO TO USER PAGE"
+    style="@style/Widget.AppCompat.Button.Colored"/>
+
+    <Button
+        android:id="@+id/btn_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_write"
+        android:layout_below="@+id/btn_2"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="@string/message_read_tag"
+        android:text="TOP UP"
         style="@style/Widget.AppCompat.Button.Colored"/>
 </RelativeLayout>

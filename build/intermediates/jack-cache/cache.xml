@@ -2,64 +2,64 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\282513aaedd30d8622b7f3d726ca31678dc687b9\output\jars\libs\internal_impl-25.0.0.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\362c8dc1ae879d6575c62d939ff38907620e8737\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\internal_impl-25.0.0-65cfff7523a33f7299289798a4814e275594ccb6.jar" />
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-ddc2b90923a9ade8979fb8b6afc59441f4c66ddd.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\b5262f3f7a407682db887e9e914813ec9f5128d8\output\jars\classes.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\965d5995ea0aac4e9464b152b70fd267d728c8f3\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-42ef2911ef46891d15c0348abca0a0a00150685c.jar" />
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-10c511ab5d148806d0ed386001f48459ba1fb5bc.jar" />
     </item>
     <item
-        jar="F:\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\7a09d62db29ac8dd42a1e184cd0fbe303084777c\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\support-annotations-25.0.0-5991968c9a9b8e94c1f2ba261547471517b9f643.jar" />
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-d5b0ae0443fc116cb89f02d7580e466e57bce8f4.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\5ebe2692277905e6ca7e431de5e73526e54709e2\output\jars\libs\internal_impl-25.0.0.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\9c984139aee418da14198301e0e7b6c900070ef1\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\internal_impl-25.0.0-edd7813e56542da673ec86ba5367a1b141da7094.jar" />
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-abb7cb0670f2e2792b321502cc1a03f61a2461de.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\cea671263fcfb227c5b7e607f589c5057b608e9b\output\jars\classes.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\cfbd5e929bfdc06aab687fa46e1a3b7af7736f14\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-c8d8a5ea8bf78172b12c43cf4c0c0dc4b9f53825.jar" />
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-cf905ed10d398f4833e1e75c08b1b01427f92421.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\7cbf264e33ec80e8a4ecc3df7a0bcc8cc3568368\output\jars\classes.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\7db909429a46963aec572166cd42758bcd518b40\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-0db5758036c14a4172aa565d9908763a9ff78924.jar" />
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-c0e196084cc82fed6c2bf8433aeae3cd5f64a757.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\a3439094c8b9318d82e3910f7fe4c00c4b3a3e8d\output\jars\classes.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\417657e85f41872214a5d3075b2baf9cdda9325c\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-3c1ac4f68836c199935c2d456da503676906709a.jar" />
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-0443e6b0d98a266f6367fb79ffd7170c368c9ee8.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\cea671263fcfb227c5b7e607f589c5057b608e9b\output\jars\libs\internal_impl-25.0.0.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\fc981ebae1a290b3e44f7e528a83176be26494ad\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\internal_impl-25.0.0-2efa3a4ff6c6a4d7b0dfd718c780e554f240d4b5.jar" />
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-7376a7c24f0c504ffca98cf90b22df7fd436caea.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\8bd66d423c86facf143eb75f77be47e24295ebc7\output\jars\classes.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\20f5b486137bc489f5b95be0dc6382163078b40e\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-7b0d65184e62bfaa0a9c6169e277f15e056a4b7c.jar" />
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-cecd12d6fa5a271d2a38405300739edb4aa98869.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\2eec04795b0c5570468eed299405163ac5a199fb\output\jars\classes.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\f0b9314308f0c05f5833f4044d2052d4fe80cc8a\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-32e7c1f95f9158a22396f6e0ea5e7d0459ddbe32.jar" />
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-09e34c4216f8ae71a18156849834ad80706ac61a.jar" />
     </item>
     <item
         jar="C:\Users\Aniwat\.android\build-cache\ccaf5b95a5575250add301ad900ba6a1b653805a\output\jars\classes.jar"
@@ -68,34 +68,22 @@
         <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-19fe87fe9491418ead1492e1c6edd46354a3e7d7.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\8bd66d423c86facf143eb75f77be47e24295ebc7\output\jars\libs\internal_impl-25.0.0.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\ed2108fd1732056778e54f988844bd112ca885f9\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\internal_impl-25.0.0-ac58699672d71bd535025664e26746f26e94618c.jar" />
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-70ebd61876d0a172cae8e614ad9452dcb6890534.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\50ec6a9facf2abbe466f940fc154bcffadebadc7\output\jars\classes.jar"
+        jar="C:\Users\Aniwat\.android\build-cache\a34a654a504622c85cfd4e71ee57856c6124ac39\output\jars\classes.jar"
         revision="25.0.0"
-        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-1565f318ffbb862c4a7235cc4e3c7ab24088f2c0.jar" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-c16e722bd389394aa3fd888745b017c54beb939d.jar" />
     </item>
     <item
-        jar="C:\Users\Aniwat\.android\build-cache\5ebe2692277905e6ca7e431de5e73526e54709e2\output\jars\classes.jar"
+        jar="F:\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
         revision="25.0.0"
-        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-6183e6d5508e115d105c5d61b7be560fe71ac457.jar" />
-    </item>
-    <item
-        jar="C:\Users\Aniwat\.android\build-cache\282513aaedd30d8622b7f3d726ca31678dc687b9\output\jars\classes.jar"
-        revision="25.0.0"
-        sha1="26674000177e45447a0326a6ad84612761199a13">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-6898ade7609faabb0fad46aa128abff2e3952faa.jar" />
-    </item>
-    <item
-        jar="C:\Users\Aniwat\.android\build-cache\b5262f3f7a407682db887e9e914813ec9f5128d8\output\jars\libs\internal_impl-25.0.0.jar"
-        revision="25.0.0"
-        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
-        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\internal_impl-25.0.0-fc61c1285edd6da5c9e058092c27bb803e256f72.jar" />
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\support-annotations-25.3.1-3752f12a658ca692ec609117c73a40885e8aece7.jar" />
     </item>
 
 </items>

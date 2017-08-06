@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:2:1-26:12
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:2:1-39:12
 	package
 		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml
@@ -18,17 +18,19 @@ ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\
 	android:name
 		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:5:22-59
 application
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:7:5-20:19
-MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\Aniwat\.android\build-cache\2eec04795b0c5570468eed299405163ac5a199fb\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-v4:25.0.0] C:\Users\Aniwat\.android\build-cache\a3439094c8b9318d82e3910f7fe4c00c4b3a3e8d\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:25.0.0] C:\Users\Aniwat\.android\build-cache\5ebe2692277905e6ca7e431de5e73526e54709e2\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:25.0.0] C:\Users\Aniwat\.android\build-cache\8bd66d423c86facf143eb75f77be47e24295ebc7\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:25.0.0] C:\Users\Aniwat\.android\build-cache\282513aaedd30d8622b7f3d726ca31678dc687b9\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:25.0.0] C:\Users\Aniwat\.android\build-cache\b5262f3f7a407682db887e9e914813ec9f5128d8\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.0.0] C:\Users\Aniwat\.android\build-cache\7cbf264e33ec80e8a4ecc3df7a0bcc8cc3568368\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:25.0.0] C:\Users\Aniwat\.android\build-cache\50ec6a9facf2abbe466f940fc154bcffadebadc7\output\AndroidManifest.xml:23:5-20
-MERGED from [com.android.support:support-compat:25.0.0] C:\Users\Aniwat\.android\build-cache\cea671263fcfb227c5b7e607f589c5057b608e9b\output\AndroidManifest.xml:25:5-20
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:7:5-33:19
 MERGED from [com.android.volley:volley:1.0.0] C:\Users\Aniwat\.android\build-cache\ccaf5b95a5575250add301ad900ba6a1b653805a\output\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:design:25.3.1] C:\Users\Aniwat\.android\build-cache\20f5b486137bc489f5b95be0dc6382163078b40e\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Aniwat\.android\build-cache\9c984139aee418da14198301e0e7b6c900070ef1\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Aniwat\.android\build-cache\362c8dc1ae879d6575c62d939ff38907620e8737\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Aniwat\.android\build-cache\7a09d62db29ac8dd42a1e184cd0fbe303084777c\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] C:\Users\Aniwat\.android\build-cache\f0b9314308f0c05f5833f4044d2052d4fe80cc8a\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Aniwat\.android\build-cache\a34a654a504622c85cfd4e71ee57856c6124ac39\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Aniwat\.android\build-cache\417657e85f41872214a5d3075b2baf9cdda9325c\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Aniwat\.android\build-cache\965d5995ea0aac4e9464b152b70fd267d728c8f3\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Aniwat\.android\build-cache\ed2108fd1732056778e54f988844bd112ca885f9\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Aniwat\.android\build-cache\cfbd5e929bfdc06aab687fa46e1a3b7af7736f14\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Aniwat\.android\build-cache\fc981ebae1a290b3e44f7e528a83176be26494ad\output\AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:10:9-41
 	android:supportsRtl
@@ -40,48 +42,80 @@ MERGED from [com.android.volley:volley:1.0.0] C:\Users\Aniwat\.android\build-cac
 	android:theme
 		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:12:9-40
 activity#com.learn2crack.nfc.MainActivity
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:13:9-19:20
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:14:9-20:20
 	android:name
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:13:19-47
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:14:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:14:13-18:29
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:15:13-19:29
 action#android.intent.action.MAIN
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:15:17-69
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:15:25-66
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:16:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:17:17-77
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:17:27-74
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:18:27-74
+activity#com.learn2crack.nfc.UsersListActivity
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:22:9-24:20
+	android:name
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:22:19-52
+activity#com.learn2crack.nfc.NFCActivity
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:26:9-28:20
+	android:name
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:26:19-46
+activity#com.learn2crack.nfc.TopUpActivity
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:30:9-32:20
+	android:name
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:30:19-48
 uses-permission#android.permission.INTERNET
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:22:5-67
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:35:5-67
 	android:name
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:22:22-64
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:35:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:23:5-79
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:36:5-79
 	android:name
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:23:22-76
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:36:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:24:5-76
+ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:37:5-76
 	android:name
-		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:24:22-73
+		ADDED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml:37:22-73
 uses-sdk
 INJECTED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\Aniwat\.android\build-cache\2eec04795b0c5570468eed299405163ac5a199fb\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:25.0.0] C:\Users\Aniwat\.android\build-cache\a3439094c8b9318d82e3910f7fe4c00c4b3a3e8d\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.0.0] C:\Users\Aniwat\.android\build-cache\5ebe2692277905e6ca7e431de5e73526e54709e2\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.0.0] C:\Users\Aniwat\.android\build-cache\8bd66d423c86facf143eb75f77be47e24295ebc7\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.0.0] C:\Users\Aniwat\.android\build-cache\282513aaedd30d8622b7f3d726ca31678dc687b9\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.0.0] C:\Users\Aniwat\.android\build-cache\b5262f3f7a407682db887e9e914813ec9f5128d8\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:animated-vector-drawable:25.0.0] C:\Users\Aniwat\.android\build-cache\7cbf264e33ec80e8a4ecc3df7a0bcc8cc3568368\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.0.0] C:\Users\Aniwat\.android\build-cache\50ec6a9facf2abbe466f940fc154bcffadebadc7\output\AndroidManifest.xml:21:5-43
-MERGED from [com.android.support:support-compat:25.0.0] C:\Users\Aniwat\.android\build-cache\cea671263fcfb227c5b7e607f589c5057b608e9b\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.volley:volley:1.0.0] C:\Users\Aniwat\.android\build-cache\ccaf5b95a5575250add301ad900ba6a1b653805a\output\AndroidManifest.xml:7:5-43
+MERGED from [com.android.support:design:25.3.1] C:\Users\Aniwat\.android\build-cache\20f5b486137bc489f5b95be0dc6382163078b40e\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Aniwat\.android\build-cache\9c984139aee418da14198301e0e7b6c900070ef1\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Aniwat\.android\build-cache\362c8dc1ae879d6575c62d939ff38907620e8737\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Aniwat\.android\build-cache\7a09d62db29ac8dd42a1e184cd0fbe303084777c\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Aniwat\.android\build-cache\7db909429a46963aec572166cd42758bcd518b40\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.1] C:\Users\Aniwat\.android\build-cache\f0b9314308f0c05f5833f4044d2052d4fe80cc8a\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Aniwat\.android\build-cache\a34a654a504622c85cfd4e71ee57856c6124ac39\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Aniwat\.android\build-cache\417657e85f41872214a5d3075b2baf9cdda9325c\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Aniwat\.android\build-cache\965d5995ea0aac4e9464b152b70fd267d728c8f3\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Aniwat\.android\build-cache\ed2108fd1732056778e54f988844bd112ca885f9\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Aniwat\.android\build-cache\cfbd5e929bfdc06aab687fa46e1a3b7af7736f14\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Aniwat\.android\build-cache\fc981ebae1a290b3e44f7e528a83176be26494ad\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:25.0.0] C:\Users\Aniwat\.android\build-cache\2eec04795b0c5570468eed299405163ac5a199fb\output\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:design:25.3.1] C:\Users\Aniwat\.android\build-cache\20f5b486137bc489f5b95be0dc6382163078b40e\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		INJECTED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml
 		INJECTED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml
 		INJECTED from F:\GitHub\project\android-nfc-tag-read-write-master\NFC\app\src\main\AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.3.1] C:\Users\Aniwat\.android\build-cache\20f5b486137bc489f5b95be0dc6382163078b40e\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Aniwat\.android\build-cache\9c984139aee418da14198301e0e7b6c900070ef1\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Aniwat\.android\build-cache\362c8dc1ae879d6575c62d939ff38907620e8737\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Aniwat\.android\build-cache\7a09d62db29ac8dd42a1e184cd0fbe303084777c\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Aniwat\.android\build-cache\7db909429a46963aec572166cd42758bcd518b40\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] C:\Users\Aniwat\.android\build-cache\f0b9314308f0c05f5833f4044d2052d4fe80cc8a\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Aniwat\.android\build-cache\a34a654a504622c85cfd4e71ee57856c6124ac39\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Aniwat\.android\build-cache\417657e85f41872214a5d3075b2baf9cdda9325c\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Aniwat\.android\build-cache\965d5995ea0aac4e9464b152b70fd267d728c8f3\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Aniwat\.android\build-cache\ed2108fd1732056778e54f988844bd112ca885f9\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Aniwat\.android\build-cache\cfbd5e929bfdc06aab687fa46e1a3b7af7736f14\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Aniwat\.android\build-cache\fc981ebae1a290b3e44f7e528a83176be26494ad\output\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:design:25.3.1] C:\Users\Aniwat\.android\build-cache\20f5b486137bc489f5b95be0dc6382163078b40e\output\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:design:25.3.1] C:\Users\Aniwat\.android\build-cache\20f5b486137bc489f5b95be0dc6382163078b40e\output\AndroidManifest.xml:26:9-47

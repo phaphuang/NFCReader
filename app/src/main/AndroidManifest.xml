@@ -26,6 +26,10 @@
         <activity android:name=".NFCActivity">
 
         </activity>
+
+        <activity android:name=".TopUpActivity">
+
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
