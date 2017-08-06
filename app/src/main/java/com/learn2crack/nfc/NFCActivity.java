@@ -246,4 +246,10 @@ public class NFCActivity extends AppCompatActivity implements Listener{
         startActivity(intent);
         finish();
     }
+
+    public void backToAllUsers(View v) {
+        Intent intent = new Intent(this, UsersListActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
