@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/top_menu"/>
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.learn2crack.nfc.MainActivity">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/ic_nfc" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avatar"
+            android:text="USERNAME : BASS"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/current_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username"
+            android:text="CURRENT BALANCE : 2600"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/current_sell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/current_balance"
+            android:text="TOTAL SELL AMOUNT : 1200"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/current_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/current_sell"
+            android:text="TOTAL LEFT AMOUNT : 1400"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_proceed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/current_left"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="PROCEED"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -26,6 +26,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.learn2crack.nfc.UsersListActivity" >
+        </activity>
+        <activity android:name="com.learn2crack.nfc.NFCActivity" >
+        </activity>
+        <activity android:name="com.learn2crack.nfc.RegisterActivity" >
+        </activity>
+        <activity android:name="com.learn2crack.nfc.TopupActivity" >
+        </activity>
+        <activity android:name="com.learn2crack.nfc.SellfoodActivity" >
+        </activity>
+        <activity android:name="com.learn2crack.nfc.ConfirmSellActivity" >
+        </activity>
+        <activity android:name="com.learn2crack.nfc.NFCSellActivity" >
+        </activity>
     </application>
 
 </manifest>

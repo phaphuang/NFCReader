@@ -16,6 +16,7 @@ public class ConfirmSellActivity extends AppCompatActivity {
     private TextView mCurrentBalance;
     private TextView mCurrentSell;
     private TextView mCurrentLeft;
+    private TextView mUserName;
     private Button mProceed;
 
     @Override
@@ -25,6 +26,9 @@ public class ConfirmSellActivity extends AppCompatActivity {
 
         String nfcid = getIntent().getStringExtra("NFCID");
         String totalSellAmount = getIntent().getStringExtra("TOTAL_SELL_AMOUNT");
+        String firstName = getIntent().getStringExtra("FIRST_NAME");
+        String lastName = getIntent().getStringExtra("LAST_NAME");
+        String currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
 
         Toast.makeText(this, "Confirm sell nfc id : " + nfcid + " with amount : " + totalSellAmount, Toast.LENGTH_SHORT).show();
 
@@ -32,10 +36,14 @@ public class ConfirmSellActivity extends AppCompatActivity {
         mCurrentSell = (TextView) findViewById(R.id.current_sell);
         mCurrentLeft = (TextView) findViewById(R.id.current_left);
         mProceed = (Button) findViewById(R.id.btn_proceed);
+        mUserName = (TextView) findViewById(R.id.username);
 
         // SEND AJAX TO GET CURRENT BALANCE
 
-        mCurrentBalance.setText("CURRENT BALANCE : 2800");
+        //mCurrentBalance.setText("CURRENT BALANCE : 2800");
+        mCurrentBalance.setText("CURRENT BALANCE : " + currentBalance);
+        mUserName.setText("NAME : " + firstName+ " " +lastName);
+
 
         mProceed.setOnClickListener(new View.OnClickListener() {
             @Override
