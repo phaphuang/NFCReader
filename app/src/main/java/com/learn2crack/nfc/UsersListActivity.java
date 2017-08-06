@@ -99,19 +99,8 @@ public class UsersListActivity extends AppCompatActivity {
                                             public void run() {
 
                                                 System.out.println("SEND AJAX SEARCH");
-
-                                                USERS = new ArrayList<String>(Arrays.asList(
-                                                        "BASS one",
-                                                        "BASS two",
-                                                        "BASS three",
-                                                        "BASS four",
-                                                        "BASS five",
-                                                        "BASS six",
-                                                        "BASS seven",
-                                                        "BASS eight",
-                                                        "BASS nine",
-                                                        "BASS ten"
-                                                )) ;
+                                                String searchText = mSearch.getText().toString();
+                                                USERS = searchList(searchText);
 
                                                 adapter.setItems(USERS);
                                                 adapter.notifyDataSetChanged();
@@ -198,5 +187,53 @@ public class UsersListActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
         return allUser;
+    }
+
+    public List<String> searchList(String textSearch){
+        List<String> filterUser = new ArrayList<>();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("JsonObject Response",response.toString());
+                Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+                try {
+                    JSONObject obj = new JSONObject(response.toString());
+                    JSONArray dataArray = obj.getJSONArray("data");
+                    //JSONObject finalObject = dataArray.getJSONObject(0);
+                    for(int i = 0; i < dataArray.length(); i++){
+                        JSONObject finalObject = dataArray.getJSONObject(i);
+                        firstName = finalObject.getString("f_name");
+                        Log.d("Test Json Firstname", firstName);
+                        lastName = finalObject.getString("l_name");
+                        register_flag = finalObject.getString("register_flag");
+                        filterUser.add(firstName + " "  + lastName);
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(UsersListActivity.this,error.toString(),Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("action", "QUERYALLUSERFILTER");
+                params.put("textSearch", textSearch);
+                //Log.d("ShowTag", "Value: " + tagId );
+                return params;
+            }
+        };
+
+        //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+        return filterUser;
     }
 }
