@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnSell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, UsersListActivity.class);
+                Intent intent = new Intent(MainActivity.this, SellfoodActivity.class);
                 startActivity(intent);
                 finish();
             }

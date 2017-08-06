@@ -25,7 +25,7 @@
             android:id="@+id/text_scan_to_search_nfc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="PLEASE SCAN NFC TO SEARCH USER"/>
+            android:hint="PLEASE SCAN NFC TO SELL FOOD AND BEVERAGE"/>
 
         <Button
             android:id="@+id/btn_search_by_nfc_id"

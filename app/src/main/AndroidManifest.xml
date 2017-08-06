@@ -35,6 +35,18 @@
 
         </activity>
 
+        <activity android:name=".SellfoodActivity">
+
+        </activity>
+
+        <activity android:name=".ConfirmSellActivity">
+
+        </activity>
+
+        <activity android:name=".NFCSellActivity">
+
+        </activity>
+
 
     </application>
 

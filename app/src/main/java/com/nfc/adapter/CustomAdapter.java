@@ -38,6 +38,10 @@ public class CustomAdapter extends BaseAdapter {
         return 0;
     }
 
+    public void setItems(String[] items) {
+        this.strName = items;
+    }
+
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
