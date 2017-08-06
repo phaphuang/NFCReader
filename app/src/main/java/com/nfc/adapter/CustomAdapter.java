@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.learn2crack.nfc.R;
 
+import java.util.List;
+
 /**
  * Created by basssrongsil on 8/5/2017 AD.
  */
@@ -17,28 +19,28 @@ import com.learn2crack.nfc.R;
 public class CustomAdapter extends BaseAdapter {
 
     private Context mContext;
-    private String[] strName;
+    private List<String> strName;
     private int[] resId;
 
-    public CustomAdapter(Context context, String[] strName) {
+    public CustomAdapter(Context context, List<String> strName) {
         this.mContext= context;
         this.strName = strName;
         // this.resId = resId;
     }
 
     public int getCount() {
-        return strName.length;
+        return strName.size();
     }
 
     public Object getItem(int position) {
-        return strName[position];
+        return strName.get(position);
     }
 
     public long getItemId(int position) {
         return 0;
     }
 
-    public void setItems(String[] items) {
+    public void setItems(List<String> items) {
         this.strName = items;
     }
 
@@ -50,7 +52,7 @@ public class CustomAdapter extends BaseAdapter {
         }
 
         TextView textView = (TextView)view.findViewById(R.id.textViewUserRow);
-        textView.setText(strName[position]);
+        textView.setText(strName.get(position));
 
         ImageView imageView = (ImageView)view.findViewById(R.id.imageViewUserRow);
         // imageView.setBackgroundResource(resId[position]);
