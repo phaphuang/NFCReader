@@ -49,6 +49,8 @@ public class UsersListActivity extends AppCompatActivity {
     private String firstName = "";
     private String lastName = "";
 
+    CustomAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,7 @@ public class UsersListActivity extends AppCompatActivity {
 
         USERS = queryAllUser();
 
-        CustomAdapter adapter = new CustomAdapter(getApplicationContext(), USERS);
+        adapter = new CustomAdapter(getApplicationContext(), USERS);
 
         ListView listView = (ListView)findViewById(R.id.listViewUsers);
         listView.setAdapter(adapter);
@@ -162,6 +164,9 @@ public class UsersListActivity extends AppCompatActivity {
                         allUser.add(firstName + " "  + lastName);
 
                     }
+                    adapter.setItems(allUser);
+                    adapter.notifyDataSetChanged();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -209,6 +214,10 @@ public class UsersListActivity extends AppCompatActivity {
                         filterUser.add(firstName + " "  + lastName);
 
                     }
+
+                    adapter.setItems(filterUser);
+                    adapter.notifyDataSetChanged();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
