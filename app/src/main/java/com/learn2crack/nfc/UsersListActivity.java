@@ -127,6 +127,9 @@ public class UsersListActivity extends AppCompatActivity {
         finish();
     }
 
+    public void backToAllUsers(View v) {
+    }
+
     public void searchByScanNfc(View v) {
         Intent intent = new Intent(this, NFCActivity.class);
         startActivity(intent);
