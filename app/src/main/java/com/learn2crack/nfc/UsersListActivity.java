@@ -48,6 +48,7 @@ public class UsersListActivity extends AppCompatActivity {
     private String register_flag = "";
     private String firstName = "";
     private String lastName = "";
+    private String currentBalance = "";
 
     CustomAdapter adapter;
 
@@ -57,7 +58,6 @@ public class UsersListActivity extends AppCompatActivity {
         setContentView(R.layout.users_list);
 
         mSearch = (EditText) findViewById(R.id.search);
-
         USERS = queryAllUser();
 
         adapter = new CustomAdapter(getApplicationContext(), USERS);
@@ -68,13 +68,11 @@ public class UsersListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 String user = USERS.get(position);
-
-                Toast.makeText(UsersListActivity.this, "Click item " + position + " which is " + USERS.get(position), Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
-                intent.putExtra("user", user);
-                startActivity(intent);
-                finish();
+                String[] fullName = user.split(" ");
+                String fName = fullName[0];
+                String lName = fullName[1];
+                userClick(fName, lName);
+                Toast.makeText(UsersListActivity.this, "Click item " + position + " which is " + USERS.get(position) , Toast.LENGTH_LONG).show();
 
             }
         });
@@ -158,7 +156,7 @@ public class UsersListActivity extends AppCompatActivity {
                     for(int i = 0; i < dataArray.length(); i++){
                         JSONObject finalObject = dataArray.getJSONObject(i);
                         firstName = finalObject.getString("f_name");
-                        Log.d("Test Json Firstname", firstName);
+                        //Log.d("Test Json Firstname", firstName);
                         lastName = finalObject.getString("l_name");
                         register_flag = finalObject.getString("register_flag");
                         allUser.add(firstName + " "  + lastName);
@@ -234,7 +232,7 @@ public class UsersListActivity extends AppCompatActivity {
                 Map<String,String> params = new HashMap<String, String>();
                 params.put("action", "QUERYALLUSERFILTER");
                 params.put("textSearch", textSearch);
-                //Log.d("ShowTag", "Value: " + tagId );
+                Log.d("ShowTag", params.toString());
                 return params;
             }
         };
@@ -244,5 +242,57 @@ public class UsersListActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
         return filterUser;
+    }
+
+    public void userClick(String fName, String lName){
+        //String returnBalance = "";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("JsonObject Response",response.toString());
+                Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+                try {
+                    JSONObject obj = new JSONObject(response.toString());
+                    JSONArray dataArray = obj.getJSONArray("data");
+                    //JSONObject finalObject = dataArray.getJSONObject(0);
+                    JSONObject finalObject = dataArray.getJSONObject(0);
+                    currentBalance = finalObject.getString("current_amt");
+                    Log.d("Test Json Balance", currentBalance);
+                    Log.d("First Name", fName);
+
+
+                    Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
+                    intent.putExtra("FIRST_NAME", fName);
+                    intent.putExtra("LAST_NAME", lName);
+                    intent.putExtra("CURRENT_BALANCE",  currentBalance);
+                    startActivity(intent);
+                    finish();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(UsersListActivity.this,error.toString(),Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("action", "QUERYUSER");
+                params.put("firstname", fName);
+                params.put("lastname", lName);
+                Log.d("ShowTag", params.toString());
+                return params;
+            }
+        };
+
+        //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 }
