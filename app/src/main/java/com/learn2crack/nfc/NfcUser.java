@@ -6,5 +6,5 @@ package com.learn2crack.nfc;
 
 public class NfcUser {
     public String nfcId, firstName, lastName, userName;
-    public int balance;
+    public Integer balance;
 }

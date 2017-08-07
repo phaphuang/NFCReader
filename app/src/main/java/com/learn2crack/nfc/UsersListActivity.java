@@ -43,10 +43,11 @@ public class UsersListActivity extends AppCompatActivity {
 
     static List<NfcUser> USERS;
 
-    private String register_flag = "";
     private String firstName = "";
     private String lastName = "";
-    private String currentBalance = "";
+    private Integer balance = 0;
+    private String userName = "";
+    private String nfcId = "";
 
     CustomAdapter adapter;
 
@@ -77,7 +78,7 @@ public class UsersListActivity extends AppCompatActivity {
                     Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
                     intent.putExtra("FIRST_NAME", fName);
                     intent.putExtra("LAST_NAME", lName);
-                    intent.putExtra("CURRENT_BALANCE", balance);
+                    intent.putExtra("CURRENT_BALANCE", balance.toString());
                     startActivity(intent);
                     finish();
                 } else {
@@ -171,14 +172,21 @@ public class UsersListActivity extends AppCompatActivity {
                         firstName = finalObject.getString("f_name");
                         //Log.d("Test Json Firstname", firstName);
                         lastName = finalObject.getString("l_name");
-                        register_flag = finalObject.getString("register_flag");
+                        try{
+                            balance = finalObject.getInt("current_balance");
+                            userName = finalObject.getString("username");
+                            nfcId = finalObject.getString("tag_id");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Log.d("Test Json Balance:", balance.toString());
 
                         NfcUser user = new NfcUser();
                         user.firstName = firstName;
                         user.lastName = lastName;
-                        // user.balance = balance;
-                        // user.userName = userName;
-                        // user.nfcId = nfcId;
+                        user.balance = balance;
+                        user.userName = userName;
+                        user.nfcId = nfcId;
 
                         allUser.add(user);
 
@@ -229,7 +237,6 @@ public class UsersListActivity extends AppCompatActivity {
                         firstName = finalObject.getString("f_name");
                         Log.d("Test Json Firstname", firstName);
                         lastName = finalObject.getString("l_name");
-                        register_flag = finalObject.getString("register_flag");
 
                         NfcUser user = new NfcUser();
                         user.firstName = firstName;
@@ -268,68 +275,5 @@ public class UsersListActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
         return filterUser;
-    }
-
-    public void userClick(String fName, String lName){
-        //String returnBalance = "";
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("JsonObject Response",response.toString());
-                //Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
-                try {
-                    JSONObject obj = new JSONObject(response.toString());
-                    JSONArray dataArray = obj.getJSONArray("data");
-                    //JSONObject finalObject = dataArray.getJSONObject(0);
-                    if (dataArray.length() > 0) {
-                        JSONObject finalObject = dataArray.getJSONObject(0);
-                        currentBalance = finalObject.getString("current_amt");
-                        Log.d("Test Json Balance", currentBalance);
-                        Log.d("First Name", fName);
-
-
-                        Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
-                        intent.putExtra("FIRST_NAME", fName);
-                        intent.putExtra("LAST_NAME", lName);
-                        intent.putExtra("CURRENT_BALANCE", currentBalance);
-                        startActivity(intent);
-                        finish();
-                    } else {
-
-                        Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
-                        intent.putExtra("FIRST_NAME", fName);
-                        intent.putExtra("LAST_NAME", lName);
-                        intent.putExtra("CURRENT_BALANCE", currentBalance);
-                        startActivity(intent);
-                        finish();
-
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(UsersListActivity.this,error.toString(),Toast.LENGTH_LONG).show();
-            }
-        }){
-            @Override
-            protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("action", "QUERYUSER");
-                params.put("firstname", fName);
-                params.put("lastname", lName);
-                Log.d("ShowTag", params.toString());
-                return params;
-            }
-        };
-
-        //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
     }
 }
