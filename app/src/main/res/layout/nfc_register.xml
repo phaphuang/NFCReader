@@ -33,8 +33,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_scan_to_search_nfc"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:visibility="invisible"
             android:text="SEARCH"
-            android:enabled="false"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+        <Button
+            android:id="@+id/btn_register_nfc_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="REGISTER THIS NFC"
+            android:textColor="#ffffff"
+            android:visibility="invisible"
             style="@style/Widget.AppCompat.Button.Colored"/>
 
         <!--<Button-->

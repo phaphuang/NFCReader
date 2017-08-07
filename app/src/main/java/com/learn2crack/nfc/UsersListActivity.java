@@ -43,7 +43,7 @@ public class UsersListActivity extends AppCompatActivity {
 
     private EditText mSearch;
 
-    static List<String> USERS;
+    static List<NfcUser> USERS;
 
     private String register_flag = "";
     private String firstName = "";
@@ -67,12 +67,27 @@ public class UsersListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String user = USERS.get(position);
-                String[] fullName = user.split(" ");
-                String fName = fullName[0];
-                String lName = fullName[1];
-                userClick(fName, lName);
-                Toast.makeText(UsersListActivity.this, "Click item " + position + " which is " + USERS.get(position) , Toast.LENGTH_LONG).show();
+                String fName = USERS.get(position).firstName;
+                String lName = USERS.get(position).lastName;
+                Integer balance = USERS.get(position).balance;
+                String nfcId = USERS.get(position).nfcId;
+                String userName = USERS.get(position).userName;
+                //userClick(fName, lName);
+                //Toast.makeText(UsersListActivity.this, "Click item " + position + " which is " + fName + " " + lName , Toast.LENGTH_LONG).show();
+
+                if (nfcId != null && !nfcId.isEmpty()) {
+                    Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
+                    intent.putExtra("FIRST_NAME", fName);
+                    intent.putExtra("LAST_NAME", lName);
+                    intent.putExtra("CURRENT_BALANCE", balance);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Intent intent = new Intent(UsersListActivity.this, NFCActivity.class);
+                    intent.putExtra("USER_NAME", userName);
+                    startActivity(intent);
+                    finish();
+                }
 
             }
         });
@@ -142,13 +157,13 @@ public class UsersListActivity extends AppCompatActivity {
         finish();
     }
 
-    public List<String> queryAllUser(){
-        List<String> allUser = new ArrayList<>();
+    public List<NfcUser> queryAllUser(){
+        List<NfcUser> allUser = new ArrayList<>();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
-                Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
                 try {
                     JSONObject obj = new JSONObject(response.toString());
                     JSONArray dataArray = obj.getJSONArray("data");
@@ -159,7 +174,14 @@ public class UsersListActivity extends AppCompatActivity {
                         //Log.d("Test Json Firstname", firstName);
                         lastName = finalObject.getString("l_name");
                         register_flag = finalObject.getString("register_flag");
-                        allUser.add(firstName + " "  + lastName);
+
+                        NfcUser user = new NfcUser();
+                        user.firstName = firstName;
+                        user.lastName = lastName;
+                        // user.balance = balance;
+                        // user.userName = userName;
+
+                        allUser.add(user);
 
                     }
                     adapter.setItems(allUser);
@@ -192,8 +214,8 @@ public class UsersListActivity extends AppCompatActivity {
         return allUser;
     }
 
-    public List<String> searchList(String textSearch){
-        List<String> filterUser = new ArrayList<>();
+    public List<NfcUser> searchList(String textSearch){
+        List<NfcUser> filterUser = new ArrayList<>();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -209,7 +231,12 @@ public class UsersListActivity extends AppCompatActivity {
                         Log.d("Test Json Firstname", firstName);
                         lastName = finalObject.getString("l_name");
                         register_flag = finalObject.getString("register_flag");
-                        filterUser.add(firstName + " "  + lastName);
+
+                        NfcUser user = new NfcUser();
+                        user.firstName = firstName;
+                        user.lastName = lastName;
+
+                        filterUser.add(user);
 
                     }
 
@@ -250,23 +277,34 @@ public class UsersListActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
-                Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
                 try {
                     JSONObject obj = new JSONObject(response.toString());
                     JSONArray dataArray = obj.getJSONArray("data");
                     //JSONObject finalObject = dataArray.getJSONObject(0);
-                    JSONObject finalObject = dataArray.getJSONObject(0);
-                    currentBalance = finalObject.getString("current_amt");
-                    Log.d("Test Json Balance", currentBalance);
-                    Log.d("First Name", fName);
+                    if (dataArray.length() > 0) {
+                        JSONObject finalObject = dataArray.getJSONObject(0);
+                        currentBalance = finalObject.getString("current_amt");
+                        Log.d("Test Json Balance", currentBalance);
+                        Log.d("First Name", fName);
 
 
-                    Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
-                    intent.putExtra("FIRST_NAME", fName);
-                    intent.putExtra("LAST_NAME", lName);
-                    intent.putExtra("CURRENT_BALANCE",  currentBalance);
-                    startActivity(intent);
-                    finish();
+                        Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
+                        intent.putExtra("FIRST_NAME", fName);
+                        intent.putExtra("LAST_NAME", lName);
+                        intent.putExtra("CURRENT_BALANCE", currentBalance);
+                        startActivity(intent);
+                        finish();
+                    } else {
+
+                        Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
+                        intent.putExtra("FIRST_NAME", fName);
+                        intent.putExtra("LAST_NAME", lName);
+                        intent.putExtra("CURRENT_BALANCE", currentBalance);
+                        startActivity(intent);
+                        finish();
+
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();

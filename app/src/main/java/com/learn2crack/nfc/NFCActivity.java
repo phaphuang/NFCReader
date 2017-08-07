@@ -8,7 +8,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;*/
 
+import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
@@ -20,6 +22,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +51,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
     private Button mBtRead;
     private TextView mNfcId;
     private Button mBtnDoSearch;
+    private Button mBtnRegister;
 
     private NFCWriteFragment mNfcWriteFragment;
     private NFCReadFragment mNfcReadFragment;
@@ -58,6 +62,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
     private String currentBalance = "";
     private String firstName = "";
     private String lastName = "";
+    private String userName = null;
 
     private NfcAdapter mNfcAdapter;
 
@@ -74,6 +79,14 @@ public class NFCActivity extends AppCompatActivity implements Listener{
 
         mNfcId = (TextView) findViewById(R.id.text_scan_to_search_nfc);
         mBtnDoSearch = (Button) findViewById(R.id.btn_search_by_nfc_id);
+        mBtnRegister = (Button) findViewById(R.id.btn_register_nfc_user);
+
+        userName = getIntent().getStringExtra("USER_NAME");
+
+        if (userName != null) {
+            mNfcId.setText("PLEASE SCAN NFC TO REGISTER");
+        }
+
 
         mBtnDoSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +98,56 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                 intent.putExtra("CURRENT_BALANCE", currentBalance);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        mBtnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(NFCActivity.this);
+                alertDialog.setTitle("REGISTER");
+                alertDialog.setMessage("Enter Username");
+
+                EditText input = new EditText(NFCActivity.this);
+                if (userName != null) {
+                    input.setText(userName);
+                }
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.MATCH_PARENT);
+                input.setLayoutParams(lp);
+                alertDialog.setView(input);
+
+                alertDialog.setPositiveButton("YES",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                String username = input.getText().toString();
+                                String nfcId = mNfcId.getText().toString();
+
+                                Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
+                                intent.putExtra("NFCID", nfcId);
+                                //intent.putExtra("FIRST_NAME", firstName);
+                                //intent.putExtra("LAST_NAME", lastName);
+                                //intent.putExtra("CURRENT_BALANCE", currentBalance);
+                                startActivity(intent);
+                                finish();
+
+                            }
+                        });
+
+                alertDialog.setNegativeButton("NO",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+
+                alertDialog.show();
+
+
             }
         });
     }
@@ -170,12 +233,18 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                     JSONObject obj = new JSONObject(response.toString());
                     JSONArray dataArray = obj.getJSONArray("data");
 
-                    JSONObject finalObject = dataArray.getJSONObject(0);
-                    firstName = finalObject.getString("f_name");
-                    lastName = finalObject.getString("l_name");
-                    currentBalance = finalObject.getString("current_amt");
-                    //Toast.makeText(NFCSellActivity.this, currentAmount, Toast.LENGTH_SHORT).show();
-                    mBtnDoSearch.setEnabled(true);
+                    if (dataArray.length() > 0) {
+                        JSONObject finalObject = dataArray.getJSONObject(0);
+                        firstName = finalObject.getString("f_name");
+                        lastName = finalObject.getString("l_name");
+                        currentBalance = finalObject.getString("current_amt");
+                        //Toast.makeText(NFCSellActivity.this, currentAmount, Toast.LENGTH_SHORT).show();
+                        mBtnDoSearch.setEnabled(true);
+                    } else {
+
+                        mBtnRegister.setVisibility(View.VISIBLE);
+
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.learn2crack.nfc.NfcUser;
 import com.learn2crack.nfc.R;
 
 import java.util.List;
@@ -19,29 +20,29 @@ import java.util.List;
 public class CustomAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<String> strName;
+    private List<NfcUser> items;
     private int[] resId;
 
-    public CustomAdapter(Context context, List<String> strName) {
+    public CustomAdapter(Context context, List<NfcUser> items) {
         this.mContext= context;
-        this.strName = strName;
+        this.items = items;
         // this.resId = resId;
     }
 
     public int getCount() {
-        return strName.size();
+        return items.size();
     }
 
     public Object getItem(int position) {
-        return strName.get(position);
+        return items.get(position);
     }
 
     public long getItemId(int position) {
         return 0;
     }
 
-    public void setItems(List<String> items) {
-        this.strName = items;
+    public void setItems(List<NfcUser> items) {
+        this.items = items;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
@@ -52,7 +53,7 @@ public class CustomAdapter extends BaseAdapter {
         }
 
         TextView textView = (TextView)view.findViewById(R.id.textViewUserRow);
-        textView.setText(strName.get(position));
+        textView.setText(items.get(position).firstName + " " + items.get(position).lastName);
 
         ImageView imageView = (ImageView)view.findViewById(R.id.imageViewUserRow);
         // imageView.setBackgroundResource(resId[position]);

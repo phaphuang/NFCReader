@@ -43,13 +43,13 @@
             android:layout_marginRight="20dp"
             android:layout_below="@+id/search" />
 
-        <Button
-            android:id="@+id/btn_register_back"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/listViewUsers"
-            android:text="BACK"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+        <!--<Button-->
+            <!--android:id="@+id/btn_register_back"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/listViewUsers"-->
+            <!--android:text="BACK"-->
+            <!--style="@style/Widget.AppCompat.Button.Colored"/>-->
 
     </RelativeLayout>
 
