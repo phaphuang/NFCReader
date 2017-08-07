@@ -25,9 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Timer;
@@ -180,6 +178,7 @@ public class UsersListActivity extends AppCompatActivity {
                         user.lastName = lastName;
                         // user.balance = balance;
                         // user.userName = userName;
+                        // user.nfcId = nfcId;
 
                         allUser.add(user);
 
