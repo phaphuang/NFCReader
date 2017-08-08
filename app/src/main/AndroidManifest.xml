@@ -47,6 +47,18 @@
 
         </activity>
 
+        <activity android:name=".TopUpDeductActivity">
+
+        </activity>
+
+        <activity android:name=".UpdateTopupActivity">
+
+        </activity>
+
+        <activity android:name=".UpdateDeductActivity">
+
+        </activity>
+
 
     </application>
 

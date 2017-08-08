@@ -75,7 +75,7 @@ public class UsersListActivity extends AppCompatActivity {
                 //Toast.makeText(UsersListActivity.this, "Click item " + position + " which is " + fName + " " + lName , Toast.LENGTH_LONG).show();
 
                 if (nfcId != null && !nfcId.isEmpty()) {
-                    Intent intent = new Intent(UsersListActivity.this, TopupActivity.class);
+                    Intent intent = new Intent(UsersListActivity.this, TopUpDeductActivity.class);
                     intent.putExtra("FIRST_NAME", fName);
                     intent.putExtra("LAST_NAME", lName);
                     intent.putExtra("CURRENT_BALANCE", balance.toString());
