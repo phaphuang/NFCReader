@@ -103,6 +103,18 @@ public class TopUpDeductActivity extends AppCompatActivity {
             }
         });
 
+        mDeduuct.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(TopUpDeductActivity.this, UpdateDeductActivity.class);
+                intent.putExtra("FIRST_NAME", getIntent().getStringExtra("FIRST_NAME"));
+                intent.putExtra("LAST_NAME", getIntent().getStringExtra("LAST_NAME"));
+                intent.putExtra("CURRENT_BALANCE", getIntent().getStringExtra("CURRENT_BALANCE"));
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     @Override
