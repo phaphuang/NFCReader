@@ -52,8 +52,7 @@ public class CustomAdapter extends BaseAdapter {
             view = layoutInflater.inflate(R.layout.users_row, parent, false);
         }
 
-        TextView textView = (TextView)view.findViewById(R.id.textViewUserRow);
-        textView.setText(items.get(position).firstName + " " + items.get(position).lastName);
+        String nfc = "";
 
         ImageView imageView = (ImageView)view.findViewById(R.id.imageViewUserRow);
 
@@ -61,9 +60,12 @@ public class CustomAdapter extends BaseAdapter {
         if (items.get(position).nfcId != null && !items.get(position).nfcId.isEmpty()) {
 
             imageViewRegis.setBackgroundResource(R.drawable.correct_sign);
+            nfc = items.get(position).nfcId;
         } else {
             imageViewRegis.setBackgroundResource(R.drawable.incorrect_sign);
         }
+        TextView textView = (TextView)view.findViewById(R.id.textViewUserRow);
+        textView.setText(items.get(position).firstName + " " + items.get(position).lastName + " " + nfc);
 
         // imageView.setBackgroundResource(resId[position]);
 
