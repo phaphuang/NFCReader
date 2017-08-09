@@ -15,7 +15,7 @@
 
     <TextView
         android:id="@+id/textViewUserRow"
-        android:layout_width="match_parent"
+        android:layout_width="121dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
@@ -24,5 +24,11 @@
         android:text="Text"
         android:textSize="20sp"
         android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/isRegis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
 
 </LinearLayout>
