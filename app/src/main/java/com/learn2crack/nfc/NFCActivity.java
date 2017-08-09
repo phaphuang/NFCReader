@@ -66,6 +66,8 @@ public class NFCActivity extends AppCompatActivity implements Listener{
 
     private NfcAdapter mNfcAdapter;
 
+    private String status;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,16 +126,21 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                             public void onClick(DialogInterface dialog, int which) {
                                 String username = input.getText().toString();
                                 String nfcId = mNfcId.getText().toString();
+                                checkDuplicatedUsername(username, nfcId);
+                                if (status == "true") {
+                                    Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
 
-                                Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
+                                    intent.putExtra("NFCID", nfcId);
+                                    //intent.putExtra("FIRST_NAME", firstName);
+                                    //intent.putExtra("LAST_NAME", lastName);
+                                    //intent.putExtra("CURRENT_BALANCE", currentBalance);
+                                    startActivity(intent);
+                                    finish();
+                                }else{
+                                    Toast.makeText(NFCActivity.this, "Invalid username, please try again.", Toast.LENGTH_SHORT).show();
+                                }
 
-                                Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
-                                intent.putExtra("NFCID", nfcId);
-                                //intent.putExtra("FIRST_NAME", firstName);
-                                //intent.putExtra("LAST_NAME", lastName);
-                                //intent.putExtra("CURRENT_BALANCE", currentBalance);
-                                startActivity(intent);
-                                finish();
 
                             }
                         });
@@ -270,6 +277,53 @@ public class NFCActivity extends AppCompatActivity implements Listener{
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    private String checkDuplicatedUsername(String username, String nfcid)
+    {
+
+        Log.d("Username: ",  username );
+
+        final String userName = username;
+        final String nfcId = nfcid;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("JsonObject Response",response.toString());
+                Toast.makeText(NFCActivity.this,response,Toast.LENGTH_LONG).show();
+                try {
+                    JSONObject obj = new JSONObject(response.toString());
+                    status = obj.getString("status");
+                    Toast.makeText(NFCActivity.this, status, Toast.LENGTH_LONG).show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(NFCActivity.this,error.toString(),Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("action", "CHECKUSERNAME");
+                params.put("username" ,userName);
+                params.put("nfcId" ,nfcId);
+                //Log.d("ShowTag", "Value: " + tagId );
+                return params;
+            }
+        };
+
+        //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+        return status;
     }
 
     public void backToMainMenu(View v) {

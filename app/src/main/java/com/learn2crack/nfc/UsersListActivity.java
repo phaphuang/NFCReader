@@ -172,11 +172,14 @@ public class UsersListActivity extends AppCompatActivity {
                         firstName = finalObject.getString("f_name");
                         //Log.d("Test Json Firstname", firstName);
                         lastName = finalObject.getString("l_name");
+                        userName = finalObject.getString("username");
                         try{
                             balance = finalObject.getInt("current_balance");
-                            userName = finalObject.getString("username");
                             nfcId = finalObject.getString("tag_id");
+                            Log.d("Test Json NFC ID", nfcId);
                         } catch (JSONException e) {
+                            balance = 0;
+                            nfcId = "";
                             e.printStackTrace();
                         }
                         Log.d("Test Json Balance:", balance.toString());
