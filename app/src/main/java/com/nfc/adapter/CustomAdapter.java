@@ -56,6 +56,15 @@ public class CustomAdapter extends BaseAdapter {
         textView.setText(items.get(position).firstName + " " + items.get(position).lastName);
 
         ImageView imageView = (ImageView)view.findViewById(R.id.imageViewUserRow);
+
+        ImageView imageViewRegis = (ImageView)view.findViewById(R.id.isRegis);
+        if (items.get(position).nfcId != null && !items.get(position).nfcId.isEmpty()) {
+
+            imageViewRegis.setBackgroundResource(R.drawable.correct_sign);
+        } else {
+            imageViewRegis.setBackgroundResource(R.drawable.incorrect_sign);
+        }
+
         // imageView.setBackgroundResource(resId[position]);
 
         return view;
