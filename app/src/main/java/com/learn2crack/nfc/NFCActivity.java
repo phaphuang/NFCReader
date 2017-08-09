@@ -239,7 +239,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                         lastName = finalObject.getString("l_name");
                         currentBalance = finalObject.getString("current_amt");
                         //Toast.makeText(NFCSellActivity.this, currentAmount, Toast.LENGTH_SHORT).show();
-                        mBtnDoSearch.setEnabled(true);
+                        mBtnDoSearch.setVisibility(View.VISIBLE);
                     } else {
 
                         mBtnRegister.setVisibility(View.VISIBLE);
