@@ -82,7 +82,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
         mBtnDoSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
+                Intent intent = new Intent(NFCActivity.this, TopUpDeductActivity.class);
                 intent.putExtra("NFCID", mNfcId.getText().toString());
                 intent.putExtra("FIRST_NAME", firstName);
                 intent.putExtra("LAST_NAME", lastName);
@@ -273,11 +273,11 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                     if (status == "true") {
                         Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
+                        Intent intent = new Intent(NFCActivity.this, TopUpDeductActivity.class);
                         intent.putExtra("NFCID", nfcId);
-                        //intent.putExtra("FIRST_NAME", firstName);
-                        //intent.putExtra("LAST_NAME", lastName);
-                        //intent.putExtra("CURRENT_BALANCE", currentBalance);
+                        intent.putExtra("FIRST_NAME", firstName);
+                        intent.putExtra("LAST_NAME", lastName);
+                        intent.putExtra("CURRENT_BALANCE", currentBalance);
                         startActivity(intent);
                         finish();
                     } else {
