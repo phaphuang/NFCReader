@@ -7,11 +7,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 public class TopUpDeductActivity extends AppCompatActivity {
 
@@ -24,6 +21,8 @@ public class TopUpDeductActivity extends AppCompatActivity {
     private Button mProceed;
     private Button mTopup;
     private Button mDeduuct;
+
+    private String mNfcId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +41,7 @@ public class TopUpDeductActivity extends AppCompatActivity {
         String firstName = getIntent().getStringExtra("FIRST_NAME");
         String lastName = getIntent().getStringExtra("LAST_NAME");
         String currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
+        mNfcId = nfcId;
 
         SharedPreferences pref = getSharedPreferences("permission", 0);
         String prefRole = pref.getString("role", null);
@@ -90,6 +90,7 @@ public class TopUpDeductActivity extends AppCompatActivity {
                 finish();
             }
         });
+        mProceed.setVisibility(View.INVISIBLE);
 
         mTopup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +99,7 @@ public class TopUpDeductActivity extends AppCompatActivity {
                 intent.putExtra("FIRST_NAME", getIntent().getStringExtra("FIRST_NAME"));
                 intent.putExtra("LAST_NAME", getIntent().getStringExtra("LAST_NAME"));
                 intent.putExtra("CURRENT_BALANCE", getIntent().getStringExtra("CURRENT_BALANCE"));
+                intent.putExtra("NFCID", mNfcId);
                 startActivity(intent);
                 finish();
             }
@@ -110,6 +112,7 @@ public class TopUpDeductActivity extends AppCompatActivity {
                 intent.putExtra("FIRST_NAME", getIntent().getStringExtra("FIRST_NAME"));
                 intent.putExtra("LAST_NAME", getIntent().getStringExtra("LAST_NAME"));
                 intent.putExtra("CURRENT_BALANCE", getIntent().getStringExtra("CURRENT_BALANCE"));
+                intent.putExtra("NFCID", mNfcId);
                 startActivity(intent);
                 finish();
             }

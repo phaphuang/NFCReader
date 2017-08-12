@@ -35,6 +35,8 @@ public class UpdateDeductActivity extends AppCompatActivity{
     private TextView mCurrentBalance;
     private TextView mUserName;
 
+    private String mNfcId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -46,6 +48,7 @@ public class UpdateDeductActivity extends AppCompatActivity{
         String firstName = getIntent().getStringExtra("FIRST_NAME");
         String lastName = getIntent().getStringExtra("LAST_NAME");
         String currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
+        mNfcId = getIntent().getStringExtra("NFCID");
 
         mUserName.setText("NAME: " + firstName + " " + lastName);
         mCurrentBalance.setText("CURRENT BALANCE : " + currentBalance);
@@ -62,7 +65,8 @@ public class UpdateDeductActivity extends AppCompatActivity{
 
                 Toast.makeText(UpdateDeductActivity.this, "DEDUCT MONEY : " + display, Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(UpdateDeductActivity.this, MainActivity.class);
+                Intent intent = new Intent(UpdateDeductActivity.this, NFCScanToConfirmActivity.class);
+                intent.putExtra("NFCID", mNfcId);
                 startActivity(intent);
                 finish();
             }

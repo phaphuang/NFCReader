@@ -79,6 +79,7 @@ public class UsersListActivity extends AppCompatActivity {
                     intent.putExtra("FIRST_NAME", fName);
                     intent.putExtra("LAST_NAME", lName);
                     intent.putExtra("CURRENT_BALANCE", balance.toString());
+                    intent.putExtra("NFCID", nfcId);
                     startActivity(intent);
                     finish();
                 } else {
@@ -162,7 +163,7 @@ public class UsersListActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
-                //Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+                // Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
                 try {
                     JSONObject obj = new JSONObject(response.toString());
                     JSONArray dataArray = obj.getJSONArray("data");
@@ -173,15 +174,8 @@ public class UsersListActivity extends AppCompatActivity {
                         //Log.d("Test Json Firstname", firstName);
                         lastName = finalObject.getString("l_name");
                         userName = finalObject.getString("username");
-                        try{
-                            balance = finalObject.getInt("current_balance");
-                            nfcId = finalObject.getString("tag_id");
-                            Log.d("Test Json NFC ID", nfcId);
-                        } catch (JSONException e) {
-                            balance = 0;
-                            nfcId = "";
-                            e.printStackTrace();
-                        }
+                        balance = finalObject.has("current_balance") ? finalObject.getInt("current_balance") : null;
+                        nfcId = finalObject.has("tag_id") ? finalObject.getString("tag_id") : null;
                         Log.d("Test Json Balance:", balance.toString());
 
                         NfcUser user = new NfcUser();

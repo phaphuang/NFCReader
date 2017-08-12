@@ -1,13 +1,5 @@
 package com.learn2crack.nfc;
 
-/*import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;*/
-
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
@@ -15,7 +7,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
-import android.nfc.tech.Ndef;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -39,8 +30,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-//import android.view.View.OnClickListener;
 
 public class NFCActivity extends AppCompatActivity implements Listener{
     
@@ -127,21 +116,6 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                                 String username = input.getText().toString();
                                 String nfcId = mNfcId.getText().toString();
                                 checkDuplicatedUsername(username, nfcId);
-                                if (status == "true") {
-                                    Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
-
-                                    Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
-                                    intent.putExtra("NFCID", nfcId);
-                                    //intent.putExtra("FIRST_NAME", firstName);
-                                    //intent.putExtra("LAST_NAME", lastName);
-                                    //intent.putExtra("CURRENT_BALANCE", currentBalance);
-                                    startActivity(intent);
-                                    finish();
-                                }else{
-                                    Toast.makeText(NFCActivity.this, "Invalid username, please try again.", Toast.LENGTH_SHORT).show();
-                                }
-
-
                             }
                         });
 
@@ -295,7 +269,20 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                 try {
                     JSONObject obj = new JSONObject(response.toString());
                     status = obj.getString("status");
-                    Toast.makeText(NFCActivity.this, status, Toast.LENGTH_LONG).show();
+
+                    if (status == "true") {
+                        Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
+                        intent.putExtra("NFCID", nfcId);
+                        //intent.putExtra("FIRST_NAME", firstName);
+                        //intent.putExtra("LAST_NAME", lastName);
+                        //intent.putExtra("CURRENT_BALANCE", currentBalance);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(NFCActivity.this, "Invalid username, please try again.", Toast.LENGTH_SHORT).show();
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
