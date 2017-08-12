@@ -267,9 +267,18 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                 Log.d("JsonObject Response",response.toString());
                 Toast.makeText(NFCActivity.this,response,Toast.LENGTH_LONG).show();
                 try {
+                    JSONObject nameObj = new JSONObject(response.toString());
+                    JSONArray dataArray = nameObj.getJSONArray("data");
+                    for(int i = 0; i < dataArray.length(); i++) {
+                        JSONObject finalObject = dataArray.getJSONObject(i);
+                        firstName = finalObject.getString("f_name");
+                        Log.d("Test Json Firstname", firstName);
+                        lastName = finalObject.getString("l_name");
+                    }
+
+
                     JSONObject obj = new JSONObject(response.toString());
                     status = obj.getString("status");
-
                     if (status == "true") {
                         Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
 
