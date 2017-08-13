@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class UpdateTopupActivity extends AppCompatActivity{
     private Button topupBtn;
-    private int totalAmt = 0;
+    private Integer totalAmt = 0;
     private String display = "";
     private ImageButton plus20;
     private ImageButton plus50;
@@ -64,10 +64,14 @@ public class UpdateTopupActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(UpdateTopupActivity.this, "ADD MONEY : " + display, Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateTopupActivity.this, "ADD MONEY : " + totalAmt, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(UpdateTopupActivity.this, NFCScanToConfirmActivity.class);
                 intent.putExtra("NFCID", mNfcId);
+                intent.putExtra("TOTAL_AMOUNT", totalAmt.toString());
+                intent.putExtra("FIRST_NAME", firstName);
+                intent.putExtra("LAST_NAME", lastName);
+                intent.putExtra("ACTION", "topup");
                 startActivity(intent);
                 finish();
             }

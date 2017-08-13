@@ -13,9 +13,9 @@ import android.widget.Toast;
  * Created by Aniwat on 8/7/2017.
  */
 
-public class UpdateDeductActivity extends AppCompatActivity{
+public class UpdateDeductActivity extends AppCompatActivity {
     private Button deductButton;
-    private int totalAmt = 0;
+    private Integer totalAmt = 0;
     private String display = "";
     private ImageButton plus20;
     private ImageButton plus50;
@@ -38,7 +38,7 @@ public class UpdateDeductActivity extends AppCompatActivity{
     private String mNfcId;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deduct);
 
@@ -62,33 +62,41 @@ public class UpdateDeductActivity extends AppCompatActivity{
         deductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(Integer.valueOf(currentBalance) >= totalAmt){
+                    Toast.makeText(UpdateDeductActivity.this, "DEDUCT MONEY : " + display, Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(UpdateDeductActivity.this, "DEDUCT MONEY : " + display, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(UpdateDeductActivity.this, NFCScanToConfirmActivity.class);
+                    intent.putExtra("NFCID", mNfcId);
+                    intent.putExtra("TOTAL_AMOUNT", totalAmt.toString());
+                    intent.putExtra("FIRST_NAME", firstName);
+                    intent.putExtra("LAST_NAME", lastName);
+                    intent.putExtra("CURRENT_BALANCE", currentBalance);
+                    intent.putExtra("ACTION", "deduct");
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Toast.makeText(UpdateDeductActivity.this, "Invalid input value", Toast.LENGTH_SHORT).show();
+                }
 
-                Intent intent = new Intent(UpdateDeductActivity.this, NFCScanToConfirmActivity.class);
-                intent.putExtra("NFCID", mNfcId);
-                startActivity(intent);
-                finish();
             }
         });
     }
 
-    protected void updateNumber(){
+    protected void updateNumber() {
         display = "DEDUCT " + totalAmt + " BAHT";
         deductButton.setText(display);
     }
 
-    protected boolean checkNegativeNumber(int number){
-        if(number < 0){
+    protected boolean checkNegativeNumber(int number) {
+        if (number < 0) {
             Toast.makeText(this, "Invalid number!!", Toast.LENGTH_SHORT).show();
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    protected void initCalculate()
-    {
+    protected void initCalculate() {
         plus20 = (ImageButton) findViewById(R.id.imagePlus20);
         plus50 = (ImageButton) findViewById(R.id.imagePlus50);
         plus100 = (ImageButton) findViewById(R.id.imagePlus100);
@@ -154,7 +162,7 @@ public class UpdateDeductActivity extends AppCompatActivity{
                 amt = 20;
                 temp = totalAmt - amt;
                 checkNumber = checkNegativeNumber(temp);
-                if(checkNumber == false){
+                if (checkNumber == false) {
                     totalAmt -= amt;
                     updateNumber();
                 }
@@ -167,7 +175,7 @@ public class UpdateDeductActivity extends AppCompatActivity{
                 amt = 50;
                 temp = totalAmt - amt;
                 checkNumber = checkNegativeNumber(temp);
-                if(checkNumber == false){
+                if (checkNumber == false) {
                     totalAmt -= amt;
                     updateNumber();
                 }
@@ -180,7 +188,7 @@ public class UpdateDeductActivity extends AppCompatActivity{
                 amt = 100;
                 temp = totalAmt - amt;
                 checkNumber = checkNegativeNumber(temp);
-                if(checkNumber == false){
+                if (checkNumber == false) {
                     totalAmt -= amt;
                     updateNumber();
                 }
@@ -193,7 +201,7 @@ public class UpdateDeductActivity extends AppCompatActivity{
                 amt = 500;
                 temp = totalAmt - amt;
                 checkNumber = checkNegativeNumber(temp);
-                if(checkNumber == false){
+                if (checkNumber == false) {
                     totalAmt -= amt;
                     updateNumber();
                 }
@@ -206,7 +214,7 @@ public class UpdateDeductActivity extends AppCompatActivity{
                 amt = 1000;
                 temp = totalAmt - amt;
                 checkNumber = checkNegativeNumber(temp);
-                if(checkNumber == false){
+                if (checkNumber == false) {
                     totalAmt -= amt;
                     updateNumber();
                 }

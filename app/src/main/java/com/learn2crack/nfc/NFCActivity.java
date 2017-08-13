@@ -279,7 +279,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
 
                     JSONObject obj = new JSONObject(response.toString());
                     status = obj.getString("status");
-                    if (status == "true") {
+                    if (status.equals("true")) {
                         Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(NFCActivity.this, TopUpDeductActivity.class);
