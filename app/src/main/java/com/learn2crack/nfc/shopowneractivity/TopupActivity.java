@@ -19,6 +19,8 @@ import com.learn2crack.nfc.NFCScanToConfirmActivity;
 import com.learn2crack.nfc.R;
 import com.learn2crack.nfc.UsersListActivity;
 
+import org.w3c.dom.Text;
+
 public class TopupActivity extends AppCompatActivity {
     
     public static final String TAG = TopupActivity.class.getSimpleName();
@@ -26,6 +28,7 @@ public class TopupActivity extends AppCompatActivity {
     private Button mBtnTopup;
     private Button mBtnDeduct;
     private TextView mBalance;
+    private TextView mName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,10 @@ public class TopupActivity extends AppCompatActivity {
 
         mBtnTopup = (Button) findViewById(R.id.btn_topup);
         mBtnDeduct = (Button) findViewById(R.id.btn_deduct);
+        mName = (TextView) findViewById(R.id.username);
         mBalance = (TextView) findViewById(R.id.current_balance);
         String currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
+        mName.setText("NAME: " + getIntent().getStringExtra("FIRST_NAME") + " " + getIntent().getStringExtra("LAST_NAME"));
         mBalance.setText("CURRENT BALANCE : " + currentBalance);
 
 

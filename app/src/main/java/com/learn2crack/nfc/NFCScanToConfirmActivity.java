@@ -47,6 +47,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
     private String currentBalance = "";
     private String userName = null;
     private String mCurrentNfcId;
+    private TextView mTextConfirm;
 
     private NfcAdapter mNfcAdapter;
 
@@ -65,6 +66,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
 
         mTextScan = (TextView) findViewById(R.id.text_scan_to_search_nfc);
         mBtnProceed = (Button) findViewById(R.id.btn_search_by_nfc_id);
+        mTextConfirm = (TextView) findViewById(R.id.text_confirm);
 
         String mNfcId = getIntent().getStringExtra("NFCID");
         String action = getIntent().getStringExtra("ACTION");
@@ -75,6 +77,17 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
         Integer totalAmount = Integer.valueOf(totalAmountString);
 
         //Toast.makeText(NFCScanToConfirmActivity.this, "Check if the nfc id is " + mNfcId, Toast.LENGTH_SHORT).show();
+
+        if(action.equals("topup")){
+            //Toast.makeText(NFCScanToConfirmActivity.this, "TOP UP!!!", Toast.LENGTH_SHORT).show();
+            mTextConfirm.setText("TOP UP WITH AMOUNT: " + totalAmountString + " BAHT?");
+        }else if(action.equals("deduct")){
+            mTextConfirm.setText("DEDUCT WITH AMOUNT: " + totalAmountString + " BAHT?");
+        }else if(action.equals("sellitem")){
+            mTextConfirm.setText("BUY ITEM WITH AMOUNT: " + totalAmountString + " BAHT?");
+        }else{
+            Toast.makeText(NFCScanToConfirmActivity.this, "Not topup or deduct: " + action, Toast.LENGTH_SHORT).show();
+        }
 
         mBtnProceed.setOnClickListener(new View.OnClickListener() {
             @Override

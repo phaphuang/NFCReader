@@ -19,12 +19,20 @@
         android:gravity="center"
         tools:context="com.learn2crack.nfc.MainActivity">
 
-
+        <TextView
+            android:id="@+id/text_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="30dp"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/text_scan_to_search_nfc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/text_confirm"
             android:hint="PLEASE SCAN NFC TO CONFIRM"/>
 
         <Button

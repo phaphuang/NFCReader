@@ -35,7 +35,7 @@
 
         </activity>
 
-        <activity android:name=".TopupActivity">
+        <activity android:name=".shopowneractivity.TopupActivity">
 
         </activity>
 
