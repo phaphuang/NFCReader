@@ -42,53 +42,62 @@
             android:text="CURRENT BALANCE : 2600"
             android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/add_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/current_balance"
-            android:text="TOP UP AMOUNT : "
-            android:textSize="20dp"
-            android:gravity="center"
-            android:layout_alignBottom="@+id/amount_top_up" />
+        <!--<TextView-->
+            <!--android:id="@+id/add_money"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/current_balance"-->
+            <!--android:text="TOP UP AMOUNT : "-->
+            <!--android:textSize="20dp"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_alignBottom="@+id/amount_top_up" />-->
 
-        <EditText
-            android:id="@+id/amount_top_up"
-            android:layout_width="180dp"
-            android:maxEms="4"
-            android:layout_height="wrap_content"
-            android:hint=""
-            android:layout_below="@+id/current_balance"
-            android:inputType="number"
-            android:layout_alignParentEnd="true" />
+        <!--<EditText-->
+            <!--android:id="@+id/amount_top_up"-->
+            <!--android:layout_width="180dp"-->
+            <!--android:maxEms="4"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint=""-->
+            <!--android:layout_below="@+id/current_balance"-->
+            <!--android:inputType="number"-->
+            <!--android:layout_alignParentEnd="true" />-->
 
-        <TextView
-            android:id="@+id/deduct_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/add_money"
-            android:text="DECUCT AMOUNT : "
-            android:textSize="20dp"
-            android:gravity="center"
-            android:layout_alignBottom="@+id/amount_deduct" />
+        <!--<TextView-->
+            <!--android:id="@+id/deduct_money"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/add_money"-->
+            <!--android:text="DECUCT AMOUNT : "-->
+            <!--android:textSize="20dp"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_alignBottom="@+id/amount_deduct" />-->
 
-        <EditText
-            android:id="@+id/amount_deduct"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:hint=""
-            android:maxEms="4"
-            android:inputType="number"
-            android:layout_below="@+id/add_money"
-            android:layout_toRightOf="@+id/deduct_money"/>
+        <!--<EditText-->
+            <!--android:id="@+id/amount_deduct"-->
+            <!--android:layout_width="180dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint=""-->
+            <!--android:maxEms="4"-->
+            <!--android:inputType="number"-->
+            <!--android:layout_below="@+id/add_money"-->
+            <!--android:layout_toRightOf="@+id/deduct_money"/>-->
 
         <Button
-            android:id="@+id/btn_proceed"
+            android:id="@+id/btn_topup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/deduct_money"
+            android:layout_below="@+id/current_balance"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:text="PROCEED"
+            android:text="TOPUP"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+        <Button
+            android:id="@+id/btn_deduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_topup"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="DEDUCT"
             style="@style/Widget.AppCompat.Button.Colored"/>
 
     </RelativeLayout>

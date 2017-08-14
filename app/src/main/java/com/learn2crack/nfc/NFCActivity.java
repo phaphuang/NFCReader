@@ -23,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.learn2crack.nfc.shopowneractivity.TopupActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -82,7 +83,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
         mBtnDoSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NFCActivity.this, TopUpDeductActivity.class);
+                Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
                 intent.putExtra("NFCID", mNfcId.getText().toString());
                 intent.putExtra("FIRST_NAME", firstName);
                 intent.putExtra("LAST_NAME", lastName);
@@ -285,7 +286,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                     if (status.equals("true")) {
                         //Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(NFCActivity.this, TopUpDeductActivity.class);
+                        Intent intent = new Intent(NFCActivity.this, TopupActivity.class);
                         intent.putExtra("NFCID", nfcId);
                         intent.putExtra("FIRST_NAME", firstName);
                         intent.putExtra("LAST_NAME", lastName);

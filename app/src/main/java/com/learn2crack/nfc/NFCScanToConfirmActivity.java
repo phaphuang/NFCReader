@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.learn2crack.nfc.shopowneractivity.SellfoodActivity;
+import com.learn2crack.nfc.shopowneractivity.TopupActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -209,7 +210,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
                     if (status.equals("true")) {
                         //Toast.makeText(NFCScanToConfirmActivity.this, "Update topup name " + firstName + " " + lastName + " with amount " + currentBalance, Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(NFCScanToConfirmActivity.this, TopUpDeductActivity.class);
+                        Intent intent = new Intent(NFCScanToConfirmActivity.this, TopupActivity.class);
                         intent.putExtra("NFCID", nfcId);
                         intent.putExtra("FIRST_NAME", firstName);
                         intent.putExtra("LAST_NAME", lastName);
@@ -277,7 +278,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
                     if (status.equals("true")) {
                         //Toast.makeText(NFCScanToConfirmActivity.this, "Update topup name " + firstName + " " + lastName + " with amount " + currentBalance, Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(NFCScanToConfirmActivity.this, TopUpDeductActivity.class);
+                        Intent intent = new Intent(NFCScanToConfirmActivity.this, TopupActivity.class);
                         intent.putExtra("NFCID", nfcId);
                         intent.putExtra("FIRST_NAME", firstName);
                         intent.putExtra("LAST_NAME", lastName);
