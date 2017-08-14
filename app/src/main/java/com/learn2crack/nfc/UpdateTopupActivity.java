@@ -64,7 +64,7 @@ public class UpdateTopupActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(UpdateTopupActivity.this, "ADD MONEY : " + totalAmt, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(UpdateTopupActivity.this, "ADD MONEY : " + totalAmt, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(UpdateTopupActivity.this, NFCScanToConfirmActivity.class);
                 intent.putExtra("NFCID", getIntent().getStringExtra("NFCID"));

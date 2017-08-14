@@ -73,7 +73,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
         String userName = getIntent().getStringExtra("USER_NAME");
         Integer totalAmount = Integer.valueOf(totalAmountString);
 
-        Toast.makeText(NFCScanToConfirmActivity.this, "Check if the nfc id is " + mNfcId, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(NFCScanToConfirmActivity.this, "Check if the nfc id is " + mNfcId, Toast.LENGTH_SHORT).show();
 
         mBtnProceed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +94,9 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
                     alertDialog.show();
                 } else {
 
-                    Toast.makeText(NFCScanToConfirmActivity.this, "MATCH!!!! " + action + " , Amount: " + totalAmountString + " with user: " + userName, Toast.LENGTH_SHORT).show();
+                    mBtnProceed.setEnabled(false);
+
+                    //Toast.makeText(NFCScanToConfirmActivity.this, "MATCH!!!! " + action + " , Amount: " + totalAmountString + " with user: " + userName, Toast.LENGTH_SHORT).show();
                     if(action.equals("topup")){
                         //Toast.makeText(NFCScanToConfirmActivity.this, "TOP UP!!!", Toast.LENGTH_SHORT).show();
                         topupToDatabase(mNfcId, totalAmountString, firstName, lastName, userName);

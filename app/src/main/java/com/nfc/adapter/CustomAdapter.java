@@ -60,7 +60,7 @@ public class CustomAdapter extends BaseAdapter {
         if (items.get(position).nfcId != null && !items.get(position).nfcId.isEmpty()) {
 
             imageViewRegis.setBackgroundResource(R.drawable.correct_sign);
-            nfc = items.get(position).nfcId;
+            // nfc = items.get(position).nfcId;
         } else {
             imageViewRegis.setBackgroundResource(R.drawable.incorrect_sign);
         }

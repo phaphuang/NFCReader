@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         String role = prefRole == null ? "shop owner" : "staff" ;
         boolean isStaff = role.equals("staff");
 
-        Toast.makeText(MainActivity.this, "You are " + role, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(MainActivity.this, "You are " + role, Toast.LENGTH_SHORT).show();
 
         mBtnAllUsers.setOnClickListener(new View.OnClickListener() {
             @Override

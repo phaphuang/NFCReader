@@ -57,6 +57,7 @@ public class UsersListActivity extends AppCompatActivity {
         setContentView(R.layout.users_list);
 
         mSearch = (EditText) findViewById(R.id.search);
+        mSearch.setEnabled(false);
         USERS = queryAllUser();
 
         adapter = new CustomAdapter(getApplicationContext(), USERS);
@@ -177,7 +178,7 @@ public class UsersListActivity extends AppCompatActivity {
                         userName = finalObject.getString("username");
                         balance = finalObject.has("current_balance") ? finalObject.getInt("current_balance") : null;
                         nfcId = finalObject.has("tag_id") ? finalObject.getString("tag_id") : null;
-                        Log.d("Test Json Balance:", balance.toString());
+                        nfcId = nfcId != null && nfcId.equals("null") ? null : nfcId;
 
                         NfcUser user = new NfcUser();
                         user.firstName = firstName;
@@ -191,6 +192,8 @@ public class UsersListActivity extends AppCompatActivity {
                     }
                     adapter.setItems(allUser);
                     adapter.notifyDataSetChanged();
+
+                    mSearch.setEnabled(true);
 
                 } catch (JSONException e) {
                     e.printStackTrace();

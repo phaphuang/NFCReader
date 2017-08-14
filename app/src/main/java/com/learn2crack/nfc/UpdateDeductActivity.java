@@ -63,7 +63,7 @@ public class UpdateDeductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Integer.valueOf(currentBalance) >= totalAmt){
-                    Toast.makeText(UpdateDeductActivity.this, "DEDUCT MONEY : " + display, Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(UpdateDeductActivity.this, "DEDUCT MONEY : " + display, Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(UpdateDeductActivity.this, NFCScanToConfirmActivity.class);
                     intent.putExtra("NFCID", getIntent().getStringExtra("NFCID"));

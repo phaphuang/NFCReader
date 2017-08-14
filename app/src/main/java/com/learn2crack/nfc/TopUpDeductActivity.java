@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class TopUpDeductActivity extends AppCompatActivity {
 
@@ -49,14 +48,14 @@ public class TopUpDeductActivity extends AppCompatActivity {
         boolean isStaff = role.equals("staff");
 
         if (nfcId != null) {
-            Toast.makeText(this, "Top up with nfc id: " + nfcId, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Top up with nfc id: " + nfcId, Toast.LENGTH_SHORT).show();
         }
 
         if (firstName != null) {
-            Toast.makeText(this, "Top up with user id: " + firstName, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Top up with user id: " + firstName, Toast.LENGTH_SHORT).show();
         }
 
-        Toast.makeText(this, "Your role is: " + role, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Your role is: " + role, Toast.LENGTH_SHORT).show();
 
         // SEND AJAX TO GET CURRENT BALANCE
         mUserName.setText(firstName + " " + lastName);

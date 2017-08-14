@@ -114,6 +114,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                 alertDialog.setPositiveButton("YES",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
+                                mBtnRegister.setEnabled(false);
                                 String username = input.getText().toString();
                                 String nfcId = mNfcId.getText().toString();
                                 checkDuplicatedUsername(username, nfcId);
@@ -181,7 +182,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
         Log.d(TAG, "onNewIntent: "+intent.getAction());
 
         if(tag != null) {
-            Toast.makeText(this, getString(R.string.message_tag_detected), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, getString(R.string.message_tag_detected), Toast.LENGTH_SHORT).show();
 
             //Log.d(TAG, "tag ID = " + tag.getId().toString());
             //String textId = tag.getId().toString();
@@ -210,7 +211,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
-                Toast.makeText(NFCActivity.this,response,Toast.LENGTH_LONG).show();
+                //Toast.makeText(NFCActivity.this,response,Toast.LENGTH_LONG).show();
                 try {
                     JSONObject obj = new JSONObject(response.toString());
                     JSONArray dataArray = obj.getJSONArray("data");
@@ -267,7 +268,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
-                Toast.makeText(NFCActivity.this,response,Toast.LENGTH_LONG).show();
+                //Toast.makeText(NFCActivity.this,response,Toast.LENGTH_LONG).show();
                 try {
                     JSONObject nameObj = new JSONObject(response.toString());
                     JSONArray dataArray = nameObj.getJSONArray("data");
@@ -282,7 +283,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                     JSONObject obj = new JSONObject(response.toString());
                     status = obj.getString("status");
                     if (status.equals("true")) {
-                        Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(NFCActivity.this, "Register user " + username + " with nfcId " + nfcId, Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(NFCActivity.this, TopUpDeductActivity.class);
                         intent.putExtra("NFCID", nfcId);
@@ -292,6 +293,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                         startActivity(intent);
                         finish();
                     } else {
+                        mBtnRegister.setEnabled(true);
                         Toast.makeText(NFCActivity.this, "Invalid username, please try again.", Toast.LENGTH_SHORT).show();
                     }
 
