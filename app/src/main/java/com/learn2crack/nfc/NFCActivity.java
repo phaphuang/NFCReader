@@ -208,7 +208,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
 
         final String tagId = mId;
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
@@ -265,7 +265,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
         final String userName = username;
         final String nfcId = nfcid;
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
@@ -278,6 +278,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                         firstName = finalObject.getString("f_name");
                         Log.d("Test Json Firstname", firstName);
                         lastName = finalObject.getString("l_name");
+                        currentBalance = finalObject.getString("current_amt");
                     }
 
 
@@ -291,6 +292,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                         intent.putExtra("FIRST_NAME", firstName);
                         intent.putExtra("LAST_NAME", lastName);
                         intent.putExtra("CURRENT_BALANCE", currentBalance);
+                        intent.putExtra("USER_NAME", userName);
                         startActivity(intent);
                         finish();
                     } else {
