@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/top_menu"/>
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/menu1"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:gravity="left|right"
+            android:text="leo(68 บาท)"
+            android:textSize="20dp"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/spinner_amount1"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/menu1"
+            android:entries="@array/amount" />
+
+        <TextView
+            android:id="@+id/menu2"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:gravity="left|right"
+            android:text="singha(98 บาท)"
+            android:layout_below="@+id/menu1"
+            android:textSize="20dp"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/spinner_amount2"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/menu2"
+            android:layout_below="@+id/menu1"
+            android:entries="@array/amount" />
+
+        <TextView
+            android:id="@+id/menu3"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:gravity="left|right"
+            android:text="tsingtao(148 บาท)"
+            android:layout_below="@+id/menu2"
+            android:textSize="20dp"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/spinner_amount3"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/menu3"
+            android:layout_below="@+id/menu2"
+            android:entries="@array/amount" />
+
+        <TextView
+            android:id="@+id/menu4"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:gravity="left|right"
+            android:text="signature drink 1(188 บาท)"
+            android:layout_below="@+id/menu3"
+            android:textSize="20dp"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/spinner_amount4"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/menu4"
+            android:layout_below="@+id/menu3"
+            android:entries="@array/amount" />
+
+        <TextView
+            android:id="@+id/menu5"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:gravity="left|right"
+            android:text="signature drink 2(188 บาท)"
+            android:layout_below="@+id/menu4"
+            android:textSize="20dp"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/spinner_amount5"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/menu5"
+            android:layout_below="@+id/menu4"
+            android:entries="@array/amount" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="left|right"
+            android:text="Total : "
+            android:textSize="30dp"
+            android:layout_below="@+id/menu5"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="11dp" />
+
+        <Button
+            android:id="@+id/btn_proceed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/total"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="PROCEED"
+            style="@style/Widget.AppCompat.Button.Colored"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

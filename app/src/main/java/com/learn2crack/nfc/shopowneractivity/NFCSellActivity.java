@@ -1,4 +1,4 @@
-package com.learn2crack.nfc;
+package com.learn2crack.nfc.shopowneractivity;
 
 /*import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;*/
 
+import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
@@ -29,6 +31,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.learn2crack.nfc.Listener;
+import com.learn2crack.nfc.MainActivity;
+import com.learn2crack.nfc.NFCReadFragment;
+import com.learn2crack.nfc.NFCWriteFragment;
+import com.learn2crack.nfc.R;
+import com.learn2crack.nfc.UsersListActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +47,7 @@ import java.util.Map;
 
 //import android.view.View.OnClickListener;
 
-public class NFCSellActivity extends AppCompatActivity implements Listener{
+public class NFCSellActivity extends AppCompatActivity implements Listener {
     
     public static final String TAG = NFCSellActivity.class.getSimpleName();
 
@@ -54,12 +62,14 @@ public class NFCSellActivity extends AppCompatActivity implements Listener{
 
     private boolean isDialogDisplayed = false;
     private boolean isWrite = false;
+    private boolean isRegister = false;
 
     private NfcAdapter mNfcAdapter;
 
     private String currentBalance = "";
     private String firstName = "";
     private String lastName = "";
+    private String currentTagId = "";
 
 
     @Override
@@ -83,14 +93,33 @@ public class NFCSellActivity extends AppCompatActivity implements Listener{
         mBtnDoSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NFCSellActivity.this, ConfirmSellActivity.class);
-                intent.putExtra("NFCID", mNfcId.getText().toString());
-                intent.putExtra("FIRST_NAME", firstName);
-                intent.putExtra("LAST_NAME", lastName);
-                intent.putExtra("CURRENT_BALANCE", currentBalance);
-                intent.putExtra("TOTAL_SELL_AMOUNT", totalSellAmount);
-                startActivity(intent);
-                finish();
+
+                if (isRegister) {
+
+                    Intent intent = new Intent(NFCSellActivity.this, ConfirmSellActivity.class);
+                    intent.putExtra("FIRST_NAME", firstName);
+                    intent.putExtra("LAST_NAME", lastName);
+                    intent.putExtra("CURRENT_BALANCE", currentBalance);
+                    intent.putExtra("NFCID", currentTagId);
+                    intent.putExtra("TOTAL_SELL_AMOUNT", totalSellAmount);
+                    startActivity(intent);
+                    finish();
+
+                } else {
+
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(NFCSellActivity.this);
+                    alertDialog.setTitle("CONFIRM");
+                    alertDialog.setMessage("This user hasn't registered yet, please contact staff");
+                    //alertDialog.setMessage("Print: " + mNfcId.equals(mCurrentNfcId));
+                    alertDialog.setNegativeButton("OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+
+                    alertDialog.show();
+                }
             }
         });
     }
@@ -177,11 +206,17 @@ public class NFCSellActivity extends AppCompatActivity implements Listener{
                     JSONObject obj = new JSONObject(response.toString());
                     JSONArray dataArray = obj.getJSONArray("data");
 
-                    JSONObject finalObject = dataArray.getJSONObject(0);
-                    firstName = finalObject.getString("f_name");
-                    lastName = finalObject.getString("l_name");
-                    currentBalance = finalObject.getString("current_amt");
-                    //Toast.makeText(NFCSellActivity.this, currentAmount, Toast.LENGTH_SHORT).show();
+                    if (dataArray.length() > 0) {
+                        JSONObject finalObject = dataArray.getJSONObject(0);
+                        firstName = finalObject.getString("f_name");
+                        lastName = finalObject.getString("l_name");
+                        currentBalance = finalObject.getString("current_amt");
+                        currentTagId = finalObject.getString("tag_id");
+                        //Toast.makeText(NFCSellActivity.this, currentAmount, Toast.LENGTH_SHORT).show();
+                        isRegister = true;
+                    } else {
+                        isRegister = false;
+                    }
                     mBtnDoSearch.setEnabled(true);
                 } catch (JSONException e) {
                     e.printStackTrace();

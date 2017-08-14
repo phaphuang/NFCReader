@@ -8,4 +8,42 @@
     <string name="message_write_tag">Write to NFC Tag</string>
     <string name="message_tap_tag">Tap the NFC Tag to your device !</string>
     <string name="hint_message">Message</string>
+
+    <string-array name="FoodMenu">
+        <item>คนเล็กกุ๊กเทวดา(88 บาท)</item>
+        <item>สองคนสองคม(88 บาท)</item>
+    </string-array>
+
+    <string-array name="BeverageMenu">
+        <item>leo(68 บาท)</item>
+        <item>singha(98 บาท)</item>
+        <item>tsingtao(148 บาท)</item>
+        <item>signature drink 1(188 บาท)</item>
+        <item>signature drink 2(188 บาท)</item>
+    </string-array>
+
+    <string-array name="amount">
+        <item>x0</item>
+        <item>x1</item>
+        <item>x2</item>
+        <item>x3</item>
+        <item>x4</item>
+        <item>x5</item>
+        <item>x6</item>
+        <item>x7</item>
+        <item>x8</item>
+        <item>x9</item>
+        <item>x10</item>
+        <item>x11</item>
+        <item>x12</item>
+        <item>x13</item>
+        <item>x14</item>
+        <item>x15</item>
+        <item>x16</item>
+        <item>x17</item>
+        <item>x18</item>
+        <item>x19</item>
+        <item>x20</item>
+    </string-array>
+
 </resources>
