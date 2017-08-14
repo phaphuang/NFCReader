@@ -87,6 +87,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                 intent.putExtra("FIRST_NAME", firstName);
                 intent.putExtra("LAST_NAME", lastName);
                 intent.putExtra("CURRENT_BALANCE", currentBalance);
+                intent.putExtra("USER_NAME", userName);
                 startActivity(intent);
                 finish();
             }
@@ -219,6 +220,7 @@ public class NFCActivity extends AppCompatActivity implements Listener{
                         firstName = finalObject.getString("f_name");
                         lastName = finalObject.getString("l_name");
                         currentBalance = finalObject.getString("current_amt");
+                        userName = finalObject.getString("username");
                         //Toast.makeText(NFCSellActivity.this, currentAmount, Toast.LENGTH_SHORT).show();
                         mBtnDoSearch.setVisibility(View.VISIBLE);
                     } else {

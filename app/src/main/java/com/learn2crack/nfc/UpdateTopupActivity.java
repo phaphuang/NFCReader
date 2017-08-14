@@ -45,12 +45,12 @@ public class UpdateTopupActivity extends AppCompatActivity{
         mCurrentBalance = (TextView) findViewById(R.id.userBalance);
         mUserName = (TextView) findViewById(R.id.nameOfUser);
 
-        String firstName = getIntent().getStringExtra("FIRST_NAME");
-        String lastName = getIntent().getStringExtra("LAST_NAME");
+        //String firstName = getIntent().getStringExtra("FIRST_NAME");
+        //String lastName = getIntent().getStringExtra("LAST_NAME");
         String currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
-        mNfcId = getIntent().getStringExtra("NFCID");
+        //mNfcId = getIntent().getStringExtra("NFCID");
 
-        mUserName.setText("NAME: " + firstName + " " + lastName);
+        mUserName.setText("NAME: " + getIntent().getStringExtra("FIRST_NAME") + " " + getIntent().getStringExtra("LAST_NAME"));
         mCurrentBalance.setText("CURRENT BALANCE : " + currentBalance);
 
 
@@ -67,10 +67,11 @@ public class UpdateTopupActivity extends AppCompatActivity{
                 Toast.makeText(UpdateTopupActivity.this, "ADD MONEY : " + totalAmt, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(UpdateTopupActivity.this, NFCScanToConfirmActivity.class);
-                intent.putExtra("NFCID", mNfcId);
+                intent.putExtra("NFCID", getIntent().getStringExtra("NFCID"));
                 intent.putExtra("TOTAL_AMOUNT", totalAmt.toString());
-                intent.putExtra("FIRST_NAME", firstName);
-                intent.putExtra("LAST_NAME", lastName);
+                intent.putExtra("FIRST_NAME", getIntent().getStringExtra("FIRST_NAME"));
+                intent.putExtra("LAST_NAME", getIntent().getStringExtra("LAST_NAME"));
+                intent.putExtra("USER_NAME", getIntent().getStringExtra("USER_NAME"));
                 intent.putExtra("ACTION", "topup");
                 startActivity(intent);
                 finish();

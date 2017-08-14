@@ -78,6 +78,7 @@ public class UsersListActivity extends AppCompatActivity {
                     Intent intent = new Intent(UsersListActivity.this, TopUpDeductActivity.class);
                     intent.putExtra("FIRST_NAME", fName);
                     intent.putExtra("LAST_NAME", lName);
+                    intent.putExtra("USER_NAME", userName);
                     intent.putExtra("CURRENT_BALANCE", balance.toString());
                     intent.putExtra("NFCID", nfcId);
                     startActivity(intent);

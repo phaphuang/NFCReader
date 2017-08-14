@@ -69,6 +69,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
         String firstName = getIntent().getStringExtra("FIRST_NAME");
         String lastName = getIntent().getStringExtra("LAST_NAME");
         String totalAmountString = getIntent().getStringExtra("TOTAL_AMOUNT");
+        String userName = getIntent().getStringExtra("USER_NAME");
         Integer totalAmount = Integer.valueOf(totalAmountString);
 
         Toast.makeText(NFCScanToConfirmActivity.this, "Check if the nfc id is " + mNfcId, Toast.LENGTH_SHORT).show();
@@ -80,7 +81,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
                 if (!mNfcId.equals(mCurrentNfcId)) {
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(NFCScanToConfirmActivity.this);
                     alertDialog.setTitle("SCAN");
-                    alertDialog.setMessage("NFC does not match " + mNfcId + " AND " + mCurrentNfcId);
+                    alertDialog.setMessage("NFC does not match :" + mNfcId + ": AND :" + mCurrentNfcId + ":");
                     //alertDialog.setMessage("Print: " + mNfcId.equals(mCurrentNfcId));
                     alertDialog.setNegativeButton("OK",
                             new DialogInterface.OnClickListener() {
@@ -92,12 +93,15 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
                     alertDialog.show();
                 } else {
 
-                    Toast.makeText(NFCScanToConfirmActivity.this, "MATCH!!!! " + action + " , Amount: " + totalAmountString, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NFCScanToConfirmActivity.this, "MATCH!!!! " + action + " , Amount: " + totalAmountString + " with user: " + userName, Toast.LENGTH_SHORT).show();
                     if(action.equals("topup")){
                         //Toast.makeText(NFCScanToConfirmActivity.this, "TOP UP!!!", Toast.LENGTH_SHORT).show();
-                        topupToDatabase(mNfcId, totalAmountString, firstName, lastName);
+                        topupToDatabase(mNfcId, totalAmountString, firstName, lastName, userName);
                     }else if(action.equals("deduct")){
-                        deductToDatabase(mNfcId, totalAmountString, firstName, lastName);
+                        deductToDatabase(mNfcId, totalAmountString, firstName, lastName, userName);
+                    /*}else if(action.equals("sellitem")){
+                        sellitemToDatabase(mNfcId, totalAmountString, firstName, lastName);
+                    }*/
                     }else{
                         Toast.makeText(NFCScanToConfirmActivity.this, "Not topup or deduct: " + action, Toast.LENGTH_SHORT).show();
                     }
@@ -173,7 +177,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
         }
     }
 
-    private void topupToDatabase(String nfcId, String amount, String firstName, String lastName)
+    private void topupToDatabase(String nfcId, String amount, String firstName, String lastName, String userName)
     {
 
         Log.d("Top Up Amount ",  ":" + amount);
@@ -207,6 +211,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
                         intent.putExtra("NFCID", nfcId);
                         intent.putExtra("FIRST_NAME", firstName);
                         intent.putExtra("LAST_NAME", lastName);
+                        intent.putExtra("USER_NAME", userName);
                         intent.putExtra("CURRENT_BALANCE", currentBalance);
                         startActivity(intent);
                         finish();
@@ -229,8 +234,9 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
                 params.put("action", "TOPUPAMOUNT");
-                params.put("firstName" ,firstName);
-                params.put("lastName" ,lastName);
+                //params.put("firstName" ,firstName);
+                //params.put("lastName" ,lastName);
+                params.put("userName", userName);
                 params.put("amount" ,amount);
                 params.put("nfcId" ,nfcId);
                 //Log.d("ShowTag", "Value: " + tagId );
@@ -244,7 +250,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
         requestQueue.add(stringRequest);
     }
 
-    private void deductToDatabase(String nfcId, String amount, String firstName, String lastName)
+    private void deductToDatabase(String nfcId, String amount, String firstName, String lastName, String userName)
     {
 
         Log.d("Deduct Amount ",  ":" + amount);
@@ -273,11 +279,12 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
                         intent.putExtra("NFCID", nfcId);
                         intent.putExtra("FIRST_NAME", firstName);
                         intent.putExtra("LAST_NAME", lastName);
+                        intent.putExtra("USER_NAME", userName);
                         intent.putExtra("CURRENT_BALANCE", currentBalance);
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(NFCScanToConfirmActivity.this, "Invalid update top up, please try again.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NFCScanToConfirmActivity.this, "Invalid update deduct, please try again.", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
@@ -295,8 +302,9 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
                 params.put("action", "DEDUCTAMOUNT");
-                params.put("firstName" ,firstName);
-                params.put("lastName" ,lastName);
+                //params.put("firstName" ,firstName);
+                //params.put("lastName" ,lastName);
+                params.put("userName", userName);
                 params.put("amount" ,amount);
                 params.put("nfcId" ,nfcId);
                 //Log.d("ShowTag", "Value: " + tagId );

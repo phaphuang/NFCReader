@@ -99,6 +99,7 @@ public class TopUpDeductActivity extends AppCompatActivity {
                 intent.putExtra("FIRST_NAME", getIntent().getStringExtra("FIRST_NAME"));
                 intent.putExtra("LAST_NAME", getIntent().getStringExtra("LAST_NAME"));
                 intent.putExtra("CURRENT_BALANCE", getIntent().getStringExtra("CURRENT_BALANCE"));
+                intent.putExtra("USER_NAME", getIntent().getStringExtra("USER_NAME"));
                 intent.putExtra("NFCID", mNfcId);
                 startActivity(intent);
                 finish();
@@ -112,6 +113,7 @@ public class TopUpDeductActivity extends AppCompatActivity {
                 intent.putExtra("FIRST_NAME", getIntent().getStringExtra("FIRST_NAME"));
                 intent.putExtra("LAST_NAME", getIntent().getStringExtra("LAST_NAME"));
                 intent.putExtra("CURRENT_BALANCE", getIntent().getStringExtra("CURRENT_BALANCE"));
+                intent.putExtra("USER_NAME", getIntent().getStringExtra("USER_NAME"));
                 intent.putExtra("NFCID", mNfcId);
                 startActivity(intent);
                 finish();
