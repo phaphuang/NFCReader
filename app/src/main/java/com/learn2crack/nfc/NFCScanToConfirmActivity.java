@@ -44,7 +44,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
     private boolean isDialogDisplayed = false;
     private boolean isWrite = false;
 
-    private String currentBalance = "";
+    private String currentBalance;
     private String userName = null;
     private String mCurrentNfcId;
     private TextView mTextConfirm;
@@ -196,14 +196,14 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
     private void topupToDatabase(String nfcId, String amount, String firstName, String lastName, String userName)
     {
 
-        Log.d("Top Up Amount ",  ":" + amount);
+        Log.d("Top Up Amount ",  ":" + amount + " with NFC id: " + nfcId + " and username: " + userName);
 
         /*final Integer totalAmount = amount;
         final String nfcId = nfcid;
         final String firstName = first_name;
         final String lastName = last_name;*/
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
@@ -221,7 +221,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
                     status = obj.getString("status");
 
                     if (status.equals("true")) {
-                        //Toast.makeText(NFCScanToConfirmActivity.this, "Update topup name " + firstName + " " + lastName + " with amount " + currentBalance, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NFCScanToConfirmActivity.this, "Update topup name " + firstName + " " + lastName + " with amount " + currentBalance, Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(NFCScanToConfirmActivity.this, TopupActivity.class);
                         intent.putExtra("NFCID", nfcId);
@@ -271,7 +271,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
 
         Log.d("Deduct Amount ",  ":" + amount);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
@@ -339,7 +339,7 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
 
         Log.d("Deduct Amount ",  ":" + amount);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());

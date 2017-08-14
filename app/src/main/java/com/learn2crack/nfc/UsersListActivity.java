@@ -88,6 +88,7 @@ public class UsersListActivity extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent(UsersListActivity.this, NFCActivity.class);
                     intent.putExtra("USER_NAME", userName);
+                    //intent.putExtra("CURRENT_BALANCE", balance.toString());
                     startActivity(intent);
                     finish();
                 }
@@ -162,7 +163,7 @@ public class UsersListActivity extends AppCompatActivity {
 
     public List<NfcUser> queryAllUser(){
         List<NfcUser> allUser = new ArrayList<>();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
@@ -225,7 +226,7 @@ public class UsersListActivity extends AppCompatActivity {
 
     public List<NfcUser> searchList(String textSearch){
         List<NfcUser> filterUser = new ArrayList<>();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
