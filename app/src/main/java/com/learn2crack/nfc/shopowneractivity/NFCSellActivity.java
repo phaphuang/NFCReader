@@ -70,6 +70,7 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
     private String firstName = "";
     private String lastName = "";
     private String currentTagId = "";
+    private String userName = "";
 
 
     @Override
@@ -101,6 +102,7 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
                     intent.putExtra("LAST_NAME", lastName);
                     intent.putExtra("CURRENT_BALANCE", currentBalance);
                     intent.putExtra("NFCID", currentTagId);
+                    intent.putExtra("USER_NAME", userName);
                     intent.putExtra("TOTAL_SELL_AMOUNT", totalSellAmount);
                     startActivity(intent);
                     finish();
@@ -212,6 +214,7 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
                         lastName = finalObject.getString("l_name");
                         currentBalance = finalObject.getString("current_amt");
                         currentTagId = finalObject.getString("tag_id");
+                        userName = finalObject.getString("username");
                         //Toast.makeText(NFCSellActivity.this, currentAmount, Toast.LENGTH_SHORT).show();
                         isRegister = true;
                     } else {

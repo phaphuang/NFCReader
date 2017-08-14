@@ -40,6 +40,7 @@ public class ConfirmSellActivity extends AppCompatActivity {
         String totalSellAmount = getIntent().getStringExtra("TOTAL_SELL_AMOUNT");
         String firstName = getIntent().getStringExtra("FIRST_NAME");
         String lastName = getIntent().getStringExtra("LAST_NAME");
+        String userName = getIntent().getStringExtra("USER_NAME");
         String currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
 
         Toast.makeText(this, "Confirm sell nfc id : " + mNfcId + " with amount : " + totalSellAmount, Toast.LENGTH_SHORT).show();
@@ -64,7 +65,7 @@ public class ConfirmSellActivity extends AppCompatActivity {
             amountLeft = balance - totalSell;
 
             String formatAmount = NumberFormat.getNumberInstance(Locale.US).format(totalSell);
-            mCurrentSell.setText("CURRENT BALANCE : " + formatAmount);
+            mCurrentSell.setText("TOTAL SELL AMOUNT : " + formatAmount);
 
             if (amountLeft < 0) {
                 mCurrentLeft.setText("TOTAL LEFT AMOUNT : " + amountLeft);
@@ -104,8 +105,9 @@ public class ConfirmSellActivity extends AppCompatActivity {
                     intent.putExtra("TOTAL_AMOUNT", totalSellAmount);
                     intent.putExtra("FIRST_NAME", firstName);
                     intent.putExtra("LAST_NAME", lastName);
+                    intent.putExtra("USER_NAME", userName);
                     intent.putExtra("CURRENT_BALANCE", currentBalance);
-                    intent.putExtra("ACTION", "SELLITEM");
+                    intent.putExtra("ACTION", "sellitem");
                     startActivity(intent);
                     finish();
                     startActivity(intent);
