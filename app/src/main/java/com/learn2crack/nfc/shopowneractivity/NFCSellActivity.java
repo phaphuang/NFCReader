@@ -199,7 +199,7 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
 
         final String tagId = mId;
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://philandeznetwork.000webhostapp.com/test_query_sql.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
@@ -234,7 +234,7 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
         }){
             @Override
             protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String, String>();
+                Map<String,String> params = new HashMap <String, String>();
                 params.put("action", "QUERYTOPUP");
                 params.put("sendId" ,tagId);
                 //Log.d("ShowTag", "Value: " + tagId );

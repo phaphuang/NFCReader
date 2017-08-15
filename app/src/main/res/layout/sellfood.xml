@@ -48,20 +48,24 @@
 
         <Button
             android:id="@+id/btn_food"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:height="70dp"
             android:text="FOOD"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/btn_bev"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_food"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:height="70dp"
             android:text="BEVERAGE"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+            android:textSize="24sp" />
 
     </RelativeLayout>
 

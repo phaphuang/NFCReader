@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/avatar"
             android:text="USERNAME : BASS"
-            android:textSize="20dp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/current_balance"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/username"
             android:text="CURRENT BALANCE : 2600"
-            android:textSize="20dp" />
+            android:textSize="24sp" />
 
         <!--<TextView-->
             <!--android:id="@+id/add_money"-->
@@ -84,21 +84,25 @@
 
         <Button
             android:id="@+id/btn_topup"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/current_balance"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:height="70dp"
             android:text="TOPUP"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/btn_deduct"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_topup"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:height="70dp"
             android:text="DEDUCT"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+            android:textSize="24sp" />
 
     </RelativeLayout>
 

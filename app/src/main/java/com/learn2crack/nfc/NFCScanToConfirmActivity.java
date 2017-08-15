@@ -114,10 +114,11 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
                     if(action.equals("topup")){
                         //Toast.makeText(NFCScanToConfirmActivity.this, "TOP UP!!!", Toast.LENGTH_SHORT).show();
                         topupToDatabase(mNfcId, totalAmountString, firstName, lastName, userName);
-                    }else if(action.equals("deduct")){
+                    }else if(action.equals("deduct")) {
                         deductToDatabase(mNfcId, totalAmountString, firstName, lastName, userName);
-                    }else if(action.equals("sellitem")){
+                    /*}else if(action.equals("sellitem")){
                         sellitemToDatabase(mNfcId, totalAmountString, firstName, lastName, userName);
+                    */
                     }else{
                         Toast.makeText(NFCScanToConfirmActivity.this, "Not topup or deduct: " + action, Toast.LENGTH_SHORT).show();
                     }
@@ -318,62 +319,6 @@ public class NFCScanToConfirmActivity extends AppCompatActivity implements Liste
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
                 params.put("action", "DEDUCTAMOUNT");
-                //params.put("firstName" ,firstName);
-                //params.put("lastName" ,lastName);
-                params.put("userName", userName);
-                params.put("amount" ,amount);
-                params.put("nfcId" ,nfcId);
-                //Log.d("ShowTag", "Value: " + tagId );
-                return params;
-            }
-        };
-
-        //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-
-    private void sellitemToDatabase(String nfcId, String amount, String firstName, String lastName, String userName)
-    {
-
-        Log.d("Deduct Amount ",  ":" + amount);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("JsonObject Response",response.toString());
-                Toast.makeText(NFCScanToConfirmActivity.this,response,Toast.LENGTH_LONG).show();
-                try {
-
-                    JSONObject obj = new JSONObject(response.toString());
-                    status = obj.getString("status");
-
-                    if (status.equals("true")) {
-                        Toast.makeText(NFCScanToConfirmActivity.this, "Update amount of: " + firstName + " " + lastName + " and current balance: " + currentBalance, Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(NFCScanToConfirmActivity.this, SellfoodActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Toast.makeText(NFCScanToConfirmActivity.this, "Invalid update deduct, please try again.", Toast.LENGTH_SHORT).show();
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(NFCScanToConfirmActivity.this,error.toString(),Toast.LENGTH_LONG).show();
-            }
-        }){
-            @Override
-            protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("action", "SELLITEMAMOUNT");
                 //params.put("firstName" ,firstName);
                 //params.put("lastName" ,lastName);
                 params.put("userName", userName);

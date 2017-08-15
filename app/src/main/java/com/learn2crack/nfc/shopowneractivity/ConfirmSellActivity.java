@@ -12,13 +12,24 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.learn2crack.nfc.MainActivity;
 import com.learn2crack.nfc.NFCScanToConfirmActivity;
 import com.learn2crack.nfc.R;
 import com.learn2crack.nfc.UsersListActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.NumberFormat;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class ConfirmSellActivity extends AppCompatActivity {
     
@@ -30,6 +41,9 @@ public class ConfirmSellActivity extends AppCompatActivity {
     private TextView mUserName;
     private Button mProceed;
     private int amountLeft = 0;
+    private String currentBalance;
+
+    private String status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +55,7 @@ public class ConfirmSellActivity extends AppCompatActivity {
         String firstName = getIntent().getStringExtra("FIRST_NAME");
         String lastName = getIntent().getStringExtra("LAST_NAME");
         String userName = getIntent().getStringExtra("USER_NAME");
-        String currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
+        currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
 
         Toast.makeText(this, "Confirm sell nfc id : " + mNfcId + " with amount : " + totalSellAmount, Toast.LENGTH_SHORT).show();
 
@@ -99,8 +113,8 @@ public class ConfirmSellActivity extends AppCompatActivity {
                     alertDialog.show();
 
                 } else {
-
-                    Intent intent = new Intent(ConfirmSellActivity.this, NFCScanToConfirmActivity.class);
+                    sellitemToDatabase(mNfcId, totalSellAmount, firstName, lastName, userName);
+                    /*Intent intent = new Intent(ConfirmSellActivity.this, NFCScanToConfirmActivity.class);
                     intent.putExtra("NFCID", mNfcId);
                     intent.putExtra("TOTAL_AMOUNT", totalSellAmount);
                     intent.putExtra("FIRST_NAME", firstName);
@@ -109,13 +123,67 @@ public class ConfirmSellActivity extends AppCompatActivity {
                     intent.putExtra("CURRENT_BALANCE", currentBalance);
                     intent.putExtra("ACTION", "sellitem");
                     startActivity(intent);
-                    finish();
-                    startActivity(intent);
-                    finish();
+                    finish();*/
                 }
             }
         });
 
+    }
+
+    private void sellitemToDatabase(String nfcId, String amount, String firstName, String lastName, String userName)
+    {
+
+        Log.d("Deduct Amount ",  ":" + amount);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://nfcregis.tkhomeservice.co.th/api_nfc.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("JsonObject Response",response.toString());
+                Toast.makeText(ConfirmSellActivity.this,response,Toast.LENGTH_LONG).show();
+                try {
+
+                    JSONObject obj = new JSONObject(response.toString());
+                    status = obj.getString("status");
+
+                    if (status.equals("true")) {
+                        Toast.makeText(ConfirmSellActivity.this, "Update amount of: " + firstName + " " + lastName + " and current balance: " + currentBalance, Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(ConfirmSellActivity.this, SellfoodActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(ConfirmSellActivity.this, "Invalid update deduct, please try again.", Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(ConfirmSellActivity.this,error.toString(),Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("action", "SELLITEMAMOUNT");
+                //params.put("firstName" ,firstName);
+                //params.put("lastName" ,lastName);
+                params.put("userName", userName);
+                params.put("amount" ,amount);
+                params.put("nfcId" ,nfcId);
+                //Log.d("ShowTag", "Value: " + tagId );
+                return params;
+            }
+        };
+
+        //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
     @Override

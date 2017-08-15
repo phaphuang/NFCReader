@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/avatar"
             android:text="USERNAME : BASS"
-            android:textSize="20dp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/current_balance"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/username"
             android:text="CURRENT BALANCE : 2600"
-            android:textSize="20dp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/current_sell"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/current_balance"
             android:text="TOTAL SELL AMOUNT : 1200"
-            android:textSize="20dp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/current_left"
@@ -56,16 +56,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/current_sell"
             android:text="TOTAL LEFT AMOUNT : 1400"
-            android:textSize="20dp" />
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/btn_proceed"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/current_left"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:height="80dp"
             android:text="PROCEED"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+            android:textSize="24dp" />
 
     </RelativeLayout>
 

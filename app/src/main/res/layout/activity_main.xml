@@ -13,37 +13,46 @@
 
     <Button
         android:id="@+id/btn_allusers"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:height="80dp"
         android:text="ALL USERS"
-        style="@style/Widget.AppCompat.Button.Colored"/>
+        android:textSize="28sp" />
 
     <Button
         android:id="@+id/btn_sell"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_allusers"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:height="80dp"
         android:text="SELL FOOD AND BEVERAGE"
-        style="@style/Widget.AppCompat.Button.Colored"/>
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/btn_login_staff"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_sell"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:height="80dp"
         android:text="LOGIN"
-        style="@style/Widget.AppCompat.Button.Colored"/>
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/gen_pdf"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_login_staff"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:height="80dp"
         android:text="TEST GENERATE PDF"
-        style="@style/Widget.AppCompat.Button.Colored"/>
+        android:textSize="24sp" />
 
 </RelativeLayout>
