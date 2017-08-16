@@ -19,7 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.learn2crack.nfc.MainActivity;
-import com.learn2crack.nfc.NFCScanToConfirmActivity;
 import com.learn2crack.nfc.R;
 import com.learn2crack.nfc.UsersListActivity;
 
@@ -27,6 +26,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -42,8 +43,12 @@ public class ConfirmSellActivity extends AppCompatActivity {
     private Button mProceed;
     private int amountLeft = 0;
     private String currentBalance;
+    private String currentSell;
 
     private String status;
+
+    private String shopType;
+    private String[] amounts = new String[5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,7 @@ public class ConfirmSellActivity extends AppCompatActivity {
         String lastName = getIntent().getStringExtra("LAST_NAME");
         String userName = getIntent().getStringExtra("USER_NAME");
         currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
+        currentSell = totalSellAmount;
 
         Toast.makeText(this, "Confirm sell nfc id : " + mNfcId + " with amount : " + totalSellAmount, Toast.LENGTH_SHORT).show();
 
@@ -71,6 +77,18 @@ public class ConfirmSellActivity extends AppCompatActivity {
         //mCurrentBalance.setText("CURRENT BALANCE : 2800");
         mCurrentBalance.setText("CURRENT BALANCE : " + currentBalance);
         mUserName.setText("NAME : " + firstName+ " " +lastName);
+
+        shopType = getIntent().getStringExtra("SHOP");
+        amounts[0] = getIntent().getStringExtra("AMOUNT_1");
+        amounts[1] = getIntent().getStringExtra("AMOUNT_2");
+
+        if (shopType.equals("BEVERAGE")) {
+
+            amounts[2] = getIntent().getStringExtra("AMOUNT_3");
+            amounts[3] = getIntent().getStringExtra("AMOUNT_4");
+            amounts[4] = getIntent().getStringExtra("AMOUNT_5");
+
+        }
 
         try {
 
@@ -113,17 +131,9 @@ public class ConfirmSellActivity extends AppCompatActivity {
                     alertDialog.show();
 
                 } else {
-                    sellitemToDatabase(mNfcId, totalSellAmount, firstName, lastName, userName);
-                    /*Intent intent = new Intent(ConfirmSellActivity.this, NFCScanToConfirmActivity.class);
-                    intent.putExtra("NFCID", mNfcId);
-                    intent.putExtra("TOTAL_AMOUNT", totalSellAmount);
-                    intent.putExtra("FIRST_NAME", firstName);
-                    intent.putExtra("LAST_NAME", lastName);
-                    intent.putExtra("USER_NAME", userName);
-                    intent.putExtra("CURRENT_BALANCE", currentBalance);
-                    intent.putExtra("ACTION", "sellitem");
-                    startActivity(intent);
-                    finish();*/
+                    String strReceipt = getStringReceipt();
+
+                    //sellitemToDatabase(mNfcId, totalSellAmount, firstName, lastName, userName);
                 }
             }
         });
@@ -201,5 +211,101 @@ public class ConfirmSellActivity extends AppCompatActivity {
         Intent intent = new Intent(this, UsersListActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private String getStringReceipt() {
+
+        String BILL = "";
+        try {
+            String testText = shopType + "," + amounts[0] + "," + amounts[1] + "," + amounts[2] + "," + amounts[3] + "," + amounts[4];
+            Toast.makeText(ConfirmSellActivity.this, testText, Toast.LENGTH_LONG).show();
+
+            SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            String strDate = dt.format(new Date());
+
+            // OutputStream os = mBluetoothSocket.getOutputStream();
+
+            BILL =  "                   CASHLESS PROJECT    \n" +
+                    "                      " + strDate + "  \n";
+            BILL = BILL
+                    + "-----------------------------------------------\n";
+
+
+            BILL = BILL + String.format("%1$-10s %2$10s %3$13s %4$10s", "Item", "Qty", "Rate", "Totel");
+            BILL = BILL + "\n";
+            BILL = BILL
+                    + "-----------------------------------------------\n";
+            if (shopType.equals("FOOD")) {
+                if (amounts[0] != null) {
+                    int amount = Integer.parseInt(amounts[0]);
+                    BILL = BILL + String.format("%1$-10s %2$10s %3$11s %4$10s", "คนเล็กกุ๊กเทวดา", "", amounts[0], (amount * 88) + "");
+                }
+
+                if (amounts[1] != null) {
+                    int amount = Integer.parseInt(amounts[1]);
+                    BILL = BILL + String.format("%1$-10s %2$10s %3$11s %4$10s", "สองคนสองคม", "", amounts[1], (amount * 88) + "");
+                }
+            } else if (shopType.equals("BEVERAGE")) {
+                if (amounts[0] != null) {
+                    int amount = Integer.parseInt(amounts[0]);
+                    BILL = BILL + String.format("%1$-10s %2$10s %3$11s %4$10s", "leo", "", amounts[0], (amount * 68) + "");
+                }
+
+                if (amounts[1] != null) {
+                    int amount = Integer.parseInt(amounts[1]);
+                    BILL = BILL + String.format("%1$-10s %2$10s %3$11s %4$10s", "singha", "", amounts[1], (amount * 98) + "");
+                }
+
+                if (amounts[2] != null) {
+                    int amount = Integer.parseInt(amounts[2]);
+                    BILL = BILL + String.format("%1$-10s %2$10s %3$11s %4$10s", "singha", "", amounts[2], (amount * 148) + "");
+                }
+
+                if (amounts[3] != null) {
+                    int amount = Integer.parseInt(amounts[3]);
+                    BILL = BILL + String.format("%1$-10s %2$10s %3$11s %4$10s", "singha", "", amounts[3], (amount * 188) + "");
+                }
+
+                if (amounts[4] != null) {
+                    int amount = Integer.parseInt(amounts[4]);
+                    BILL = BILL + String.format("%1$-10s %2$10s %3$11s %4$10s", "singha", "", amounts[4], (amount * 188) + "");
+                }
+            }
+
+            BILL = BILL
+                    + "\n-----------------------------------------------";
+            BILL = BILL + "\n\n ";
+
+            BILL = BILL + "                   Total Value:" + "      " + currentSell + "\n";
+            BILL = BILL + "                   Total Balance Left:" + "     " + amountLeft + "\n";
+
+            BILL = BILL
+                    + "-----------------------------------------------\n";
+            BILL = BILL + "\n\n ";
+
+            /*os.write(BILL.getBytes());
+            //This is printer specific code you can comment ==== > Start
+
+            // Setting height
+            int gs = 29;
+            os.write(intToByteArray(gs));
+            int h = 104;
+            os.write(intToByteArray(h));
+            int n = 162;
+            os.write(intToByteArray(n));
+
+            // Setting Width
+            int gs_width = 29;
+            os.write(intToByteArray(gs_width));
+            int w = 119;
+            os.write(intToByteArray(w));
+            int n_width = 2;
+            os.write(intToByteArray(n_width));*/
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return BILL;
     }
 }

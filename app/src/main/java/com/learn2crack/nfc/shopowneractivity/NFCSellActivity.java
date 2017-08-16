@@ -1,13 +1,5 @@
 package com.learn2crack.nfc.shopowneractivity;
 
-/*import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;*/
-
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
@@ -104,6 +96,20 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
                     intent.putExtra("NFCID", currentTagId);
                     intent.putExtra("USER_NAME", userName);
                     intent.putExtra("TOTAL_SELL_AMOUNT", totalSellAmount);
+                    String shop = getIntent().getStringExtra("SHOP");
+
+                    intent.putExtra("SHOP", shop);
+                    intent.putExtra("AMOUNT_1", getIntent().getStringExtra("AMOUNT_1"));
+                    intent.putExtra("AMOUNT_2", getIntent().getStringExtra("AMOUNT_2"));
+
+                    if (shop.equals("BEVERAGE")) {
+
+                        intent.putExtra("AMOUNT_3", getIntent().getStringExtra("AMOUNT_3"));
+                        intent.putExtra("AMOUNT_4", getIntent().getStringExtra("AMOUNT_4"));
+                        intent.putExtra("AMOUNT_5", getIntent().getStringExtra("AMOUNT_5"));
+
+                    }
+
                     startActivity(intent);
                     finish();
 

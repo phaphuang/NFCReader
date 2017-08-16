@@ -27,6 +27,7 @@ public class FoodMenuActivity extends AppCompatActivity {
     private Spinner spinner2;
     private Button btnProceed;
     private TextView text;
+    private int amountMenu1, amountMenu2;
 
     private int totalAmount, totalMenu1, totalMenu2;
 
@@ -41,6 +42,8 @@ public class FoodMenuActivity extends AppCompatActivity {
         btnProceed = (Button)  findViewById(R.id.btn_proceed);
 
         totalAmount = 0;
+        amountMenu1 = 0;
+        amountMenu2 = 0;
 
         btnProceed.setEnabled(false);
         btnProceed.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +59,9 @@ public class FoodMenuActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(FoodMenuActivity.this, NFCSellActivity.class);
                                 intent.putExtra("TOTAL_SELL_AMOUNT", totalAmount + "");
+                                intent.putExtra("SHOP", "FOOD");
+                                intent.putExtra("AMOUNT_1", amountMenu1 + "");
+                                intent.putExtra("AMOUNT_2", amountMenu2 + "");
                                 startActivity(intent);
                                 finish();
                             }
@@ -77,6 +83,7 @@ public class FoodMenuActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
 
+                amountMenu1 = position;
                 totalMenu1 = 88 * position;
                 totalAmount = totalMenu1 + totalMenu2;
                 String formatAmoutn = NumberFormat.getNumberInstance(Locale.US).format(totalAmount);
@@ -96,6 +103,7 @@ public class FoodMenuActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
 
+                amountMenu2 = position;
                 totalMenu2 = 88 * position;
                 totalAmount = totalMenu1 + totalMenu2;
                 String formatAmoutn = NumberFormat.getNumberInstance(Locale.US).format(totalAmount);

@@ -24,7 +24,7 @@
             android:layout_alignParentStart="true"
             android:gravity="left|right"
             android:text="leo(68 บาท)"
-            android:textSize="24sp" />
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinner_amount1"
@@ -41,7 +41,7 @@
             android:layout_below="@+id/menu1"
             android:gravity="left|right"
             android:text="singha(98 บาท)"
-            android:textSize="24sp" />
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinner_amount2"
@@ -59,7 +59,7 @@
             android:layout_below="@+id/menu2"
             android:gravity="left|right"
             android:text="tsingtao(148 บาท)"
-            android:textSize="24sp" />
+            android:textSize="20sp" />
 
         <Spinner
             android:id="@+id/spinner_amount3"

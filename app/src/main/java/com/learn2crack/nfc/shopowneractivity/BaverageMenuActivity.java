@@ -31,6 +31,7 @@ public class BaverageMenuActivity extends AppCompatActivity {
     private Button btnProceed;
     private TextView text;
     private int[] totalMenu = new int[5];
+    private int[] amountMenu = new int[5];
 
     private int totalAmount;
 
@@ -63,6 +64,12 @@ public class BaverageMenuActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(BaverageMenuActivity.this, NFCSellActivity.class);
                                 intent.putExtra("TOTAL_SELL_AMOUNT", totalAmount + "");
+                                intent.putExtra("SHOP", "BEVERAGE");
+                                intent.putExtra("AMOUNT_1", amountMenu[0] + "");
+                                intent.putExtra("AMOUNT_2", amountMenu[1] + "");
+                                intent.putExtra("AMOUNT_3", amountMenu[2] + "");
+                                intent.putExtra("AMOUNT_4", amountMenu[3] + "");
+                                intent.putExtra("AMOUNT_5", amountMenu[4] + "");
                                 startActivity(intent);
                                 finish();
                             }
@@ -85,6 +92,7 @@ public class BaverageMenuActivity extends AppCompatActivity {
                 // your code here
 
                 totalMenu[0] = 68 * position;
+                amountMenu[0] = position;
                 calculateTotalAmount();
             }
 
@@ -101,6 +109,7 @@ public class BaverageMenuActivity extends AppCompatActivity {
                 // your code here
 
                 totalMenu[1] = 98 * position;
+                amountMenu[1] = position;
                 calculateTotalAmount();
             }
 
@@ -117,6 +126,7 @@ public class BaverageMenuActivity extends AppCompatActivity {
                 // your code here
 
                 totalMenu[2] = 148 * position;
+                amountMenu[2] = position;
                 calculateTotalAmount();
             }
 
@@ -133,6 +143,7 @@ public class BaverageMenuActivity extends AppCompatActivity {
                 // your code here
 
                 totalMenu[3] = 188 * position;
+                amountMenu[3] = position;
                 calculateTotalAmount();
             }
 
@@ -149,6 +160,7 @@ public class BaverageMenuActivity extends AppCompatActivity {
                 // your code here
 
                 totalMenu[4] = 188 * position;
+                amountMenu[4] = position;
                 calculateTotalAmount();
             }
 
