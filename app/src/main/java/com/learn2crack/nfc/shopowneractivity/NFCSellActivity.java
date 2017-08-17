@@ -60,6 +60,8 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
     private String currentTagId = "";
     private String userName = "";
 
+    String totalSellAmount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,13 +75,13 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
     private void initViews() {
 
         mNfcId = (TextView) findViewById(R.id.text_scan_to_search_nfc);
-        mBtnDoSearch = (Button) findViewById(R.id.btn_search_by_nfc_id);
+        //mBtnDoSearch = (Button) findViewById(R.id.btn_search_by_nfc_id);
 
-        String totalSellAmount = getIntent().getStringExtra("TOTAL_SELL_AMOUNT");
+        totalSellAmount = getIntent().getStringExtra("TOTAL_SELL_AMOUNT");
 
         Toast.makeText(this, "TOTAL SELL AMOUNT : " + totalSellAmount, Toast.LENGTH_SHORT).show();
 
-        mBtnDoSearch.setOnClickListener(new View.OnClickListener() {
+        /*mBtnDoSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -124,8 +126,49 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
 
                     alertDialog.show();
                 }
-            }
-        });
+            }*
+        });*/
+    }
+
+    private void proceedToConfirm(){
+        Intent intent = new Intent(NFCSellActivity.this, ConfirmSellActivity.class);
+        intent.putExtra("FIRST_NAME", firstName);
+        intent.putExtra("LAST_NAME", lastName);
+        intent.putExtra("CURRENT_BALANCE", currentBalance);
+        intent.putExtra("NFCID", currentTagId);
+        intent.putExtra("USER_NAME", userName);
+        intent.putExtra("TOTAL_SELL_AMOUNT", totalSellAmount);
+        String shop = getIntent().getStringExtra("SHOP");
+
+        intent.putExtra("SHOP", shop);
+        intent.putExtra("AMOUNT_1", getIntent().getStringExtra("AMOUNT_1"));
+        intent.putExtra("AMOUNT_2", getIntent().getStringExtra("AMOUNT_2"));
+
+        if (shop.equals("BEVERAGE")) {
+
+            intent.putExtra("AMOUNT_3", getIntent().getStringExtra("AMOUNT_3"));
+            intent.putExtra("AMOUNT_4", getIntent().getStringExtra("AMOUNT_4"));
+            intent.putExtra("AMOUNT_5", getIntent().getStringExtra("AMOUNT_5"));
+
+        }
+
+        startActivity(intent);
+        finish();
+    }
+
+    private void notRegisted(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(NFCSellActivity.this);
+        alertDialog.setTitle("CONFIRM");
+        alertDialog.setMessage("This user hasn't registered yet, please contact staff");
+        //alertDialog.setMessage("Print: " + mNfcId.equals(mCurrentNfcId));
+        alertDialog.setNegativeButton("OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+        alertDialog.show();
     }
 
     private void initNFC(){
@@ -218,11 +261,13 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
                         currentTagId = finalObject.getString("tag_id");
                         userName = finalObject.getString("username");
                         //Toast.makeText(NFCSellActivity.this, currentAmount, Toast.LENGTH_SHORT).show();
-                        isRegister = true;
+                        //isRegister = true;
+                        proceedToConfirm();
                     } else {
-                        isRegister = false;
+                        //isRegister = false;
+                        notRegisted();
                     }
-                    mBtnDoSearch.setEnabled(true);
+                    //mBtnDoSearch.setEnabled(true);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -434,7 +434,7 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
             if (shopType.equals("FOOD")) {
                 if (amounts[0] != null) {
                     int amount = Integer.parseInt(amounts[0]);
-                    BILL = BILL + String.format("%1$-10s %2$5s %3$-7s %4$5s", "Kon Lek", amounts[0], 88 + "", (amount * 88) + "\n");
+                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Kon Lek", amounts[0], 88 + "", (amount * 88) + "\n");
                 }
 
                 if (amounts[1] != null) {
