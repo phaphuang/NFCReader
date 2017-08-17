@@ -27,6 +27,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.learn2crack.nfc.MainActivity;
 import com.learn2crack.nfc.R;
+import com.learn2crack.nfc.RegisterActivity;
 import com.learn2crack.nfc.UsersListActivity;
 
 import org.json.JSONException;
@@ -81,6 +82,8 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
     private BluetoothSocket mBluetoothSocket;
     BluetoothDevice mBluetoothDevice;
 
+    private Button mBack;
+
     //Thread t;
 
     @Override
@@ -96,7 +99,9 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
         currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
         currentSell = totalSellAmount;
 
-        Toast.makeText(this, "Confirm sell nfc id : " + mNfcId + " with amount : " + totalSellAmount, Toast.LENGTH_SHORT).show();
+        mBack = (Button) findViewById(R.id.btn_back);
+
+        //Toast.makeText(this, "Confirm sell nfc id : " + mNfcId + " with amount : " + totalSellAmount, Toast.LENGTH_SHORT).show();
 
         mCurrentBalance = (TextView) findViewById(R.id.current_balance);
         mCurrentSell = (TextView) findViewById(R.id.current_sell);
@@ -166,7 +171,7 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
                 } else {
                     mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
                     if (mBluetoothAdapter == null) {
-                        Toast.makeText(ConfirmSellActivity.this, "Message1", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(ConfirmSellActivity.this, "Message1", Toast.LENGTH_SHORT).show();
                     } else {
                         if (!mBluetoothAdapter.isEnabled()) {
                             Intent enableBtIntent = new Intent(
@@ -182,6 +187,17 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
                         }
                     }
                 }
+            }
+        });
+
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(ConfirmSellActivity.this, SellfoodActivity.class);
+                startActivity(intent);
+                finish();
+
             }
         });
 
@@ -230,14 +246,14 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
-                Toast.makeText(ConfirmSellActivity.this,response,Toast.LENGTH_LONG).show();
+                //Toast.makeText(ConfirmSellActivity.this,response,Toast.LENGTH_LONG).show();
                 try {
 
                     JSONObject obj = new JSONObject(response.toString());
                     status = obj.getString("status");
 
                     if (status.equals("true")) {
-                        Toast.makeText(ConfirmSellActivity.this, "Update amount of: " + firstName + " " + lastName + " and current balance: " + currentBalance, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(ConfirmSellActivity.this, "Update amount of: " + firstName + " " + lastName + " and current balance: " + currentBalance, Toast.LENGTH_SHORT).show();
                         printBill();
                         Intent intent = new Intent(ConfirmSellActivity.this, SellfoodActivity.class);
                         startActivity(intent);

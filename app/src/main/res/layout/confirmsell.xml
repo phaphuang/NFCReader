@@ -68,6 +68,15 @@
             android:height="80dp"
             android:text="PROCEED"
             android:textSize="24dp" />
+        <Button
+            android:id="@+id/btn_back"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_proceed"
+            android:height="70dp"
+            android:text="BACK"
+            android:textSize="24sp" />
 
     </RelativeLayout>
 

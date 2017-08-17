@@ -79,7 +79,7 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
 
         totalSellAmount = getIntent().getStringExtra("TOTAL_SELL_AMOUNT");
 
-        Toast.makeText(this, "TOTAL SELL AMOUNT : " + totalSellAmount, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "TOTAL SELL AMOUNT : " + totalSellAmount, Toast.LENGTH_SHORT).show();
 
         /*mBtnDoSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -248,7 +248,7 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
-                Toast.makeText(NFCSellActivity.this,response,Toast.LENGTH_LONG).show();
+                //Toast.makeText(NFCSellActivity.this,response,Toast.LENGTH_LONG).show();
                 try {
                     JSONObject obj = new JSONObject(response.toString());
                     JSONArray dataArray = obj.getJSONArray("data");
