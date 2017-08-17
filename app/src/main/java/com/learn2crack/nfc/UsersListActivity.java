@@ -240,10 +240,12 @@ public class UsersListActivity extends AppCompatActivity {
                         firstName = finalObject.getString("f_name");
                         Log.d("Test Json Firstname", firstName);
                         lastName = finalObject.getString("l_name");
+                        userName = finalObject.getString("username");
 
                         NfcUser user = new NfcUser();
                         user.firstName = firstName;
                         user.lastName = lastName;
+                        user.userName = userName;
 
                         filterUser.add(user);
 

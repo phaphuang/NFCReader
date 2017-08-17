@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String userName = mUsername.getText().toString();
                 String password = mPassword.getText().toString();
 
-                boolean isLoginSuccess = userName.equals("BASS") && password.equals("TEE");
+                boolean isLoginSuccess = userName.equals("admin") && password.equals("nfc1234");
                 if (isLoginSuccess) {
 
                     SharedPreferences pref = getSharedPreferences("permission", 0);

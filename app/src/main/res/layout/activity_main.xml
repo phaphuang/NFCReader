@@ -45,6 +45,17 @@
         android:textSize="24sp" />
 
     <Button
+        android:id="@+id/btn_topup_deduct"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_login_staff"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:height="80dp"
+        android:text="TOPUP/DEDUCT"
+        android:textSize="24sp" />
+
+    <!--Button
         android:id="@+id/gen_pdf"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
@@ -53,6 +64,6 @@
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:height="80dp"
         android:text="TEST GENERATE PDF"
-        android:textSize="24sp" />
+        android:textSize="24sp" /-->
 
 </RelativeLayout>

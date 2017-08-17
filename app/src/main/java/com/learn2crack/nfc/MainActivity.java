@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnAllUsers;
     private Button mBtnSell;
     private Button mBtnLogin;
-    private Button mGenPdf;
+    private Button mTopupDeduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         mBtnAllUsers = (Button) findViewById(R.id.btn_allusers);
         mBtnSell = (Button) findViewById(R.id.btn_sell);
         mBtnLogin = (Button) findViewById(R.id.btn_login_staff);
-        mGenPdf = (Button) findViewById(R.id.gen_pdf);
+        //mGenPdf = (Button) findViewById(R.id.gen_pdf);
+        mTopupDeduct = (Button) findViewById(R.id.btn_topup_deduct);
 
         SharedPreferences pref = getSharedPreferences("permission", 0);
         String prefRole = pref.getString("role", null);
@@ -97,7 +98,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mGenPdf.setOnClickListener(new View.OnClickListener() {
+        if (!isStaff) {
+            mTopupDeduct.setEnabled(false);
+            mTopupDeduct.setVisibility(View.INVISIBLE);
+        }
+
+        mTopupDeduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NFCActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        /*mGenPdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -106,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
     }
 
     /**
@@ -119,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
      * 6. Finally the text below Permissions should be "Storage"
      * @throws Exception
      */
-    private void testGeneratePDF() throws Exception {
+    /*private void testGeneratePDF() throws Exception {
         Document doc = new Document();
         boolean isCreateSuccess = true;
         String fileName = "/newFile.pdf";
@@ -185,5 +200,5 @@ public class MainActivity extends AppCompatActivity {
         } catch (ActivityNotFoundException e) {
             Toast.makeText(this, "Can't read pdf file", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 }

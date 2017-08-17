@@ -436,8 +436,30 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
             String strDate = dt.format(new Date());
 
             // OutputStream os = mBluetoothSocket.getOutputStream();
-
-            BILL =  "CASHLESS PROJECT    \n" +
+            BILL = "0000000000000000000000000000\n";
+            BILL = BILL + "000000000               000000\n";
+            BILL = BILL + "000000000                00000\n";
+            BILL = BILL + "000000000                 0000\n";
+            BILL = BILL + "000000000                   0000\n";
+            BILL = BILL + "000000000                 000000\n";
+            BILL = BILL + "000000000                  00000\n";
+            BILL = BILL + "000000000                 000000\n";
+            BILL = BILL + "000000000                0000000\n";
+            BILL = BILL + "0000000000000000000000000000\n";
+            BILL = BILL + "000000000000000000000000000\n";
+            BILL = BILL + "000000000              000000\n";
+            BILL = BILL + "000000000               00000000\n";
+            BILL = BILL + "000000000                 000000\n";
+            BILL = BILL + "000000000                   0000\n";
+            BILL = BILL + "000000000                 000000\n";
+            BILL = BILL + "000000000                 000000\n";
+            BILL = BILL + "000000000                 00000\n";
+            BILL = BILL + "000000000                0000\n";
+            BILL = BILL + "0000000000000000000000000000\n";
+            BILL = BILL + "0000000000000000000000000\n";
+            BILL = BILL
+                    + "--------------------------------\n";
+            BILL = BILL + "CASHLESS PROJECT    \n" +
                     strDate + "  \n";
             BILL = BILL
                     + "--------------------------------\n";
