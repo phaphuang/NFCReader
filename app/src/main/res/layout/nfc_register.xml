@@ -29,23 +29,27 @@
 
         <Button
             android:id="@+id/btn_search_by_nfc_id"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_scan_to_search_nfc"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:visibility="invisible"
+            android:height="80dp"
             android:text="SEARCH"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+            android:textSize="24sp"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/btn_register_nfc_user"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:height="80dp"
             android:text="REGISTER THIS NFC"
             android:textColor="#ffffff"
-            android:visibility="invisible"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+            android:textSize="24sp"
+            android:visibility="invisible" />
 
         <!--<Button-->
             <!--android:id="@+id/btn_write"-->

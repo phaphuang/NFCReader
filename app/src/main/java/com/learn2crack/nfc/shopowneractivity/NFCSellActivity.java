@@ -43,14 +43,10 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
     
     public static final String TAG = NFCSellActivity.class.getSimpleName();
 
-    private EditText mEtMessage;
-    private Button mBtWrite;
-    private Button mBtRead;
     private TextView mNfcId;
     private Button mBtnDoSearch;
 
-    private NFCWriteFragment mNfcWriteFragment;
-    private NFCReadFragment mNfcReadFragment;
+
 
     private boolean isDialogDisplayed = false;
     private boolean isWrite = false;
