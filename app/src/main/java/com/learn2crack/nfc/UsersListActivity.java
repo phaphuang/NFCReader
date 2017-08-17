@@ -167,7 +167,7 @@ public class UsersListActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
-                // Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
                 try {
                     JSONObject obj = new JSONObject(response.toString());
                     JSONArray dataArray = obj.getJSONArray("data");
@@ -230,7 +230,7 @@ public class UsersListActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("JsonObject Response",response.toString());
-                Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(UsersListActivity.this,response.toString(),Toast.LENGTH_LONG).show();
                 try {
                     JSONObject obj = new JSONObject(response.toString());
                     JSONArray dataArray = obj.getJSONArray("data");

@@ -4,6 +4,7 @@ package com.learn2crack.nfc.shopowneractivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -42,6 +43,19 @@ public class TopupActivity extends AppCompatActivity {
         String currentBalance = getIntent().getStringExtra("CURRENT_BALANCE");
         mName.setText("NAME: " + getIntent().getStringExtra("FIRST_NAME") + " " + getIntent().getStringExtra("LAST_NAME"));
         mBalance.setText("CURRENT BALANCE : " + currentBalance);
+
+        SharedPreferences pref = getSharedPreferences("permission", 0);
+        String prefRole = pref.getString("role", null);
+        String role = prefRole == null ? "shop owner" : "staff" ;
+        boolean isStaff = role.equals("staff");
+
+        if (!isStaff) {
+            mBtnTopup.setEnabled(false);
+            mBtnTopup.setVisibility(View.INVISIBLE);
+
+            mBtnDeduct.setEnabled(false);
+            mBtnDeduct.setVisibility(View.INVISIBLE);
+        }
 
 
         mBtnTopup.setOnClickListener(new View.OnClickListener() {
