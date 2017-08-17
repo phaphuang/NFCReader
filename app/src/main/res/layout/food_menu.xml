@@ -70,7 +70,7 @@
             android:layout_below="@+id/total"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:height="70dp"
-            android:text="PROCEED"
+            android:text="PAY"
             android:textSize="24sp" />
 
     </RelativeLayout>

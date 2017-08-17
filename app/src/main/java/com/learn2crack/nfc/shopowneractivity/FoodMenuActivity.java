@@ -50,7 +50,15 @@ public class FoodMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(FoodMenuActivity.this);
+                Intent intent = new Intent(FoodMenuActivity.this, NFCSellActivity.class);
+                intent.putExtra("TOTAL_SELL_AMOUNT", totalAmount + "");
+                intent.putExtra("SHOP", "FOOD");
+                intent.putExtra("AMOUNT_1", amountMenu1 + "");
+                intent.putExtra("AMOUNT_2", amountMenu2 + "");
+                startActivity(intent);
+                finish();
+
+                /*AlertDialog.Builder alertDialog = new AlertDialog.Builder(FoodMenuActivity.this);
                 alertDialog.setTitle("CONFIRM");
                 alertDialog.setMessage("Are you sure to sell food for total " + totalAmount + " bath ?");
                 //alertDialog.setMessage("Print: " + mNfcId.equals(mCurrentNfcId));
@@ -74,7 +82,7 @@ public class FoodMenuActivity extends AppCompatActivity {
                             }
                         });
 
-                alertDialog.show();
+                alertDialog.show();*/
             }
         });
 

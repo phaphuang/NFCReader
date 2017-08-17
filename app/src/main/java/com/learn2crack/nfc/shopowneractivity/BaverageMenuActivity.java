@@ -55,7 +55,18 @@ public class BaverageMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(BaverageMenuActivity.this);
+                Intent intent = new Intent(BaverageMenuActivity.this, NFCSellActivity.class);
+                intent.putExtra("TOTAL_SELL_AMOUNT", totalAmount + "");
+                intent.putExtra("SHOP", "BEVERAGE");
+                intent.putExtra("AMOUNT_1", amountMenu[0] + "");
+                intent.putExtra("AMOUNT_2", amountMenu[1] + "");
+                intent.putExtra("AMOUNT_3", amountMenu[2] + "");
+                intent.putExtra("AMOUNT_4", amountMenu[3] + "");
+                intent.putExtra("AMOUNT_5", amountMenu[4] + "");
+                startActivity(intent);
+                finish();
+
+                /*AlertDialog.Builder alertDialog = new AlertDialog.Builder(BaverageMenuActivity.this);
                 alertDialog.setTitle("CONFIRM");
                 alertDialog.setMessage("Are you sure to sell food for total " + totalAmount + " bath ?");
                 //alertDialog.setMessage("Print: " + mNfcId.equals(mCurrentNfcId));
@@ -82,7 +93,7 @@ public class BaverageMenuActivity extends AppCompatActivity {
                             }
                         });
 
-                alertDialog.show();
+                alertDialog.show();*/
             }
         });
 
