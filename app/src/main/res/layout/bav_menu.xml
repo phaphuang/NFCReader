@@ -19,102 +19,97 @@
 
         <TextView
             android:id="@+id/menu1"
-            android:layout_width="270dp"
-            android:layout_height="40dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:gravity="left|right"
-            android:text="leo(68 บาท)"
-            android:textSize="20sp" />
+            android:text="Leo"
+            android:textSize="36sp" />
 
         <Spinner
             android:id="@+id/spinner_amount1"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_toRightOf="@+id/menu1"
-            android:entries="@array/amount" />
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/menu1" />
 
         <TextView
             android:id="@+id/menu2"
-            android:layout_width="270dp"
-            android:layout_height="40dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/menu1"
             android:gravity="left|right"
-            android:text="singha(98 บาท)"
-            android:textSize="20sp" />
+            android:text="Singha"
+            android:textSize="36sp" />
 
         <Spinner
             android:id="@+id/spinner_amount2"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/menu1"
-            android:layout_toRightOf="@+id/menu2"
-            android:entries="@array/amount" />
+            android:layout_toRightOf="@+id/menu2" />
 
         <TextView
             android:id="@+id/menu3"
-            android:layout_width="270dp"
-            android:layout_height="40dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/menu2"
             android:gravity="left|right"
-            android:text="tsingtao(148 บาท)"
-            android:textSize="20sp" />
+            android:text="Tsingtao"
+            android:textSize="36sp" />
 
         <Spinner
             android:id="@+id/spinner_amount3"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/menu2"
-            android:layout_toRightOf="@+id/menu3"
-            android:entries="@array/amount" />
+            android:layout_toRightOf="@+id/menu3" />
 
         <TextView
             android:id="@+id/menu4"
-            android:layout_width="270dp"
-            android:layout_height="40dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/menu3"
             android:gravity="left|right"
-            android:text="signature drink 1(188 บาท)"
-            android:textSize="20sp" />
+            android:text="Sig Drink1"
+            android:textSize="36sp" />
 
         <Spinner
             android:id="@+id/spinner_amount4"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/menu3"
-            android:layout_toRightOf="@+id/menu4"
-            android:entries="@array/amount" />
+            android:layout_toRightOf="@+id/menu4" />
 
         <TextView
             android:id="@+id/menu5"
-            android:layout_width="270dp"
-            android:layout_height="40dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/menu4"
             android:gravity="left|right"
-            android:text="signature drink 2(188 บาท)"
-            android:textSize="20sp" />
+            android:text="Sig Drink2"
+            android:textSize="36sp" />
 
         <Spinner
             android:id="@+id/spinner_amount5"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/menu4"
-            android:layout_toRightOf="@+id/menu5"
-            android:entries="@array/amount" />
+            android:layout_toRightOf="@+id/menu5" />
 
         <TextView
             android:id="@+id/total"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/menu5"
+            android:layout_marginTop="11dp"
             android:gravity="left|right"
             android:text="Total : "
-            android:textSize="30dp"
-            android:layout_below="@+id/menu5"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="11dp" />
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/btn_proceed"

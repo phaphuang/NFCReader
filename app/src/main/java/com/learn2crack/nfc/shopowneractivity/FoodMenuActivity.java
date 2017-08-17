@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -31,6 +32,31 @@ public class FoodMenuActivity extends AppCompatActivity {
 
     private int totalAmount, totalMenu1, totalMenu2;
 
+    String[] spinnerItems = new String[]{
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11",
+            "x12",
+            "x13",
+            "x14",
+            "x15",
+            "x16",
+            "x17",
+            "x18",
+            "x19",
+            "x20"
+
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +66,12 @@ public class FoodMenuActivity extends AppCompatActivity {
         spinner2 = (Spinner) findViewById(R.id.spinner_amount2);
         text = (TextView) findViewById(R.id.total);
         btnProceed = (Button)  findViewById(R.id.btn_proceed);
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.textview_spinner, spinnerItems);
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.textview_spinner);
+
+        spinner1.setAdapter(spinnerArrayAdapter);
+        spinner2.setAdapter(spinnerArrayAdapter);
 
         totalAmount = 0;
         amountMenu1 = 0;

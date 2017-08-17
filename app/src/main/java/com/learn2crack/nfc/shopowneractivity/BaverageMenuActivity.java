@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -16,11 +17,37 @@ import com.learn2crack.nfc.MainActivity;
 import com.learn2crack.nfc.R;
 import com.learn2crack.nfc.UsersListActivity;
 
+import java.lang.reflect.Array;
 import java.text.NumberFormat;
 import java.util.Locale;
 
 public class BaverageMenuActivity extends AppCompatActivity {
-    
+
+    String[] spinnerItems = new String[]{
+            "x0",
+            "x1",
+            "x2",
+            "x3",
+            "x4",
+            "x5",
+            "x6",
+            "x7",
+            "x8",
+            "x9",
+            "x10",
+            "x11",
+            "x12",
+            "x13",
+            "x14",
+            "x15",
+            "x16",
+            "x17",
+            "x18",
+            "x19",
+            "x20"
+
+    };
+
     public static final String TAG = BaverageMenuActivity.class.getSimpleName();
 
     private Spinner spinner1;
@@ -47,6 +74,15 @@ public class BaverageMenuActivity extends AppCompatActivity {
         spinner5 = (Spinner) findViewById(R.id.spinner_amount5);
         btnProceed = (Button)  findViewById(R.id.btn_proceed);
         text = (TextView) findViewById(R.id.total);
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, R.layout.textview_spinner, spinnerItems);
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.textview_spinner);
+
+        spinner1.setAdapter(spinnerArrayAdapter);
+        spinner2.setAdapter(spinnerArrayAdapter);
+        spinner3.setAdapter(spinnerArrayAdapter);
+        spinner4.setAdapter(spinnerArrayAdapter);
+        spinner5.setAdapter(spinnerArrayAdapter);
 
         totalAmount = 0;
 
