@@ -20,31 +20,31 @@
         tools:context="com.learn2crack.nfc.MainActivity">
 
         <!--<TextView-->
-            <!--android:id="@+id/total_txt"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="TOTAL AMOUNT SELL : "-->
-            <!--android:textSize="20dp"-->
-            <!--android:gravity="center"-->
-            <!--android:layout_alignBottom="@+id/amount_top_up" />-->
+        <!--android:id="@+id/total_txt"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="TOTAL AMOUNT SELL : "-->
+        <!--android:textSize="20dp"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_alignBottom="@+id/amount_top_up" />-->
 
         <!--<EditText-->
-            <!--android:id="@+id/amount_sell"-->
-            <!--android:layout_width="180dp"-->
-            <!--android:maxEms="4"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:hint=""-->
-            <!--android:layout_toRightOf="@+id/total_txt"-->
-            <!--android:inputType="number" />-->
+        <!--android:id="@+id/amount_sell"-->
+        <!--android:layout_width="180dp"-->
+        <!--android:maxEms="4"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint=""-->
+        <!--android:layout_toRightOf="@+id/total_txt"-->
+        <!--android:inputType="number" />-->
 
         <!--<Button-->
-            <!--android:id="@+id/btn_proceed"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@+id/total_txt"-->
-            <!--android:layout_marginTop="@dimen/activity_horizontal_margin"-->
-            <!--android:text="PROCEED"-->
-            <!--style="@style/Widget.AppCompat.Button.Colored"/>-->
+        <!--android:id="@+id/btn_proceed"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/total_txt"-->
+        <!--android:layout_marginTop="@dimen/activity_horizontal_margin"-->
+        <!--android:text="PROCEED"-->
+        <!--style="@style/Widget.AppCompat.Button.Colored"/>-->
 
         <Button
             android:id="@+id/btn_food"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:height="70dp"
-            android:text="FOOD"
+            android:text="FOOD/PHOTO"
             android:textSize="24sp" />
 
         <Button

@@ -20,92 +20,143 @@
         <TextView
             android:id="@+id/menu1"
             android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_height="38dp"
             android:layout_alignParentStart="true"
             android:gravity="left|right"
             android:text="Leo"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
 
         <Spinner
             android:id="@+id/spinner_amount1"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_toRightOf="@+id/menu1" />
 
         <TextView
             android:id="@+id/menu2"
             android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_height="38dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/menu1"
             android:gravity="left|right"
             android:text="Singha"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
 
         <Spinner
             android:id="@+id/spinner_amount2"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/menu1"
             android:layout_toRightOf="@+id/menu2" />
 
         <TextView
             android:id="@+id/menu3"
             android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_height="38dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/menu2"
             android:gravity="left|right"
             android:text="Tsingtao"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
 
         <Spinner
             android:id="@+id/spinner_amount3"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/menu2"
             android:layout_toRightOf="@+id/menu3" />
 
         <TextView
             android:id="@+id/menu4"
             android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_height="38dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/menu3"
             android:gravity="left|right"
-            android:text="Sig Drink1"
-            android:textSize="36sp" />
+            android:text="KKJ"
+            android:textSize="30sp" />
 
         <Spinner
             android:id="@+id/spinner_amount4"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/menu3"
             android:layout_toRightOf="@+id/menu4" />
 
         <TextView
             android:id="@+id/menu5"
             android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_height="38dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/menu4"
             android:gravity="left|right"
-            android:text="Sig Drink2"
-            android:textSize="36sp" />
+            android:text="WGW"
+            android:textSize="30sp" />
 
         <Spinner
             android:id="@+id/spinner_amount5"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/menu4"
             android:layout_toRightOf="@+id/menu5" />
 
         <TextView
-            android:id="@+id/total"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:id="@+id/menu6"
+            android:layout_width="250dp"
+            android:layout_height="38dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/menu5"
+            android:gravity="left|right"
+            android:text="Water"
+            android:textSize="30sp" />
+
+        <Spinner
+            android:id="@+id/spinner_amount6"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/menu5"
+            android:layout_toRightOf="@+id/menu6" />
+
+        <TextView
+            android:id="@+id/menu7"
+            android:layout_width="250dp"
+            android:layout_height="38dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/menu6"
+            android:gravity="left|right"
+            android:text="Coke"
+            android:textSize="30sp" />
+
+        <Spinner
+            android:id="@+id/spinner_amount7"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/menu6"
+            android:layout_toRightOf="@+id/menu7" />
+
+        <TextView
+            android:id="@+id/menu8"
+            android:layout_width="250dp"
+            android:layout_height="38dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/menu7"
+            android:gravity="left|right"
+            android:text="Tobacco"
+            android:textSize="30sp" />
+
+        <Spinner
+            android:id="@+id/spinner_amount8"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/menu7"
+            android:layout_toRightOf="@+id/menu8" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/menu8"
             android:layout_marginTop="11dp"
             android:gravity="left|right"
             android:text="Total : "

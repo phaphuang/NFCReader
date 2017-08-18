@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.learn2crack.nfc.MainActivity;
 import com.learn2crack.nfc.R;
@@ -55,10 +56,13 @@ public class BaverageMenuActivity extends AppCompatActivity {
     private Spinner spinner3;
     private Spinner spinner4;
     private Spinner spinner5;
+    private Spinner spinner6;
+    private Spinner spinner7;
+    private Spinner spinner8;
     private Button btnProceed;
     private TextView text;
-    private int[] totalMenu = new int[5];
-    private int[] amountMenu = new int[5];
+    private int[] totalMenu = new int[8];
+    private int[] amountMenu = new int[8];
 
     private int totalAmount;
 
@@ -72,6 +76,9 @@ public class BaverageMenuActivity extends AppCompatActivity {
         spinner3 = (Spinner) findViewById(R.id.spinner_amount3);
         spinner4 = (Spinner) findViewById(R.id.spinner_amount4);
         spinner5 = (Spinner) findViewById(R.id.spinner_amount5);
+        spinner6 = (Spinner) findViewById(R.id.spinner_amount6);
+        spinner7 = (Spinner) findViewById(R.id.spinner_amount7);
+        spinner8 = (Spinner) findViewById(R.id.spinner_amount8);
         btnProceed = (Button)  findViewById(R.id.btn_proceed);
         text = (TextView) findViewById(R.id.total);
 
@@ -83,6 +90,9 @@ public class BaverageMenuActivity extends AppCompatActivity {
         spinner3.setAdapter(spinnerArrayAdapter);
         spinner4.setAdapter(spinnerArrayAdapter);
         spinner5.setAdapter(spinnerArrayAdapter);
+        spinner6.setAdapter(spinnerArrayAdapter);
+        spinner7.setAdapter(spinnerArrayAdapter);
+        spinner8.setAdapter(spinnerArrayAdapter);
 
         totalAmount = 0;
 
@@ -90,7 +100,8 @@ public class BaverageMenuActivity extends AppCompatActivity {
         btnProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String testText = amountMenu[5] + "" + amountMenu[6] + amountMenu[7];
+                //Toast.makeText(BaverageMenuActivity.this, testText, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(BaverageMenuActivity.this, NFCSellActivity.class);
                 intent.putExtra("TOTAL_SELL_AMOUNT", totalAmount + "");
                 intent.putExtra("SHOP", "BEVERAGE");
@@ -99,6 +110,9 @@ public class BaverageMenuActivity extends AppCompatActivity {
                 intent.putExtra("AMOUNT_3", amountMenu[2] + "");
                 intent.putExtra("AMOUNT_4", amountMenu[3] + "");
                 intent.putExtra("AMOUNT_5", amountMenu[4] + "");
+                intent.putExtra("AMOUNT_6", amountMenu[5] + "");
+                intent.putExtra("AMOUNT_7", amountMenu[6] + "");
+                intent.putExtra("AMOUNT_8", amountMenu[7] + "");
                 startActivity(intent);
                 finish();
 
@@ -155,7 +169,7 @@ public class BaverageMenuActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
 
-                totalMenu[1] = 98 * position;
+                totalMenu[1] = 78 * position;
                 amountMenu[1] = position;
                 calculateTotalAmount();
             }
@@ -208,6 +222,57 @@ public class BaverageMenuActivity extends AppCompatActivity {
 
                 totalMenu[4] = 188 * position;
                 amountMenu[4] = position;
+                calculateTotalAmount();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        spinner6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+
+                totalMenu[5] = 20 * position;
+                amountMenu[5] = position;
+                calculateTotalAmount();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        spinner7.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+
+                totalMenu[6] = 30 * position;
+                amountMenu[6] = position;
+                calculateTotalAmount();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        spinner8.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+
+                totalMenu[7] = 138 * position;
+                amountMenu[7] = position;
                 calculateTotalAmount();
             }
 

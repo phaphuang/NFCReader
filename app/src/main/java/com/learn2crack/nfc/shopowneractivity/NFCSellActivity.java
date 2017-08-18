@@ -40,7 +40,7 @@ import java.util.Map;
 //import android.view.View.OnClickListener;
 
 public class NFCSellActivity extends AppCompatActivity implements Listener {
-    
+
     public static final String TAG = NFCSellActivity.class.getSimpleName();
 
     private TextView mNfcId;
@@ -149,6 +149,9 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
             intent.putExtra("AMOUNT_3", getIntent().getStringExtra("AMOUNT_3"));
             intent.putExtra("AMOUNT_4", getIntent().getStringExtra("AMOUNT_4"));
             intent.putExtra("AMOUNT_5", getIntent().getStringExtra("AMOUNT_5"));
+            intent.putExtra("AMOUNT_6", getIntent().getStringExtra("AMOUNT_6"));
+            intent.putExtra("AMOUNT_7", getIntent().getStringExtra("AMOUNT_7"));
+            intent.putExtra("AMOUNT_8", getIntent().getStringExtra("AMOUNT_8"));
 
         }
 
@@ -289,7 +292,7 @@ public class NFCSellActivity extends AppCompatActivity implements Listener {
             }
         };
 
-       //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        //stringRequest.setRetryPolicy(new DefaultRetryPolicy( 50000, 5, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);

@@ -21,7 +21,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class FoodMenuActivity extends AppCompatActivity {
-    
+
     public static final String TAG = FoodMenuActivity.class.getSimpleName();
 
     private Spinner spinner1;
@@ -124,7 +124,7 @@ public class FoodMenuActivity extends AppCompatActivity {
                 // your code here
 
                 amountMenu1 = position;
-                totalMenu1 = 88 * position;
+                totalMenu1 = 20 * position;
                 totalAmount = totalMenu1 + totalMenu2;
                 String formatAmoutn = NumberFormat.getNumberInstance(Locale.US).format(totalAmount);
                 text.setText("Total : " + formatAmoutn + " บาท");
@@ -144,7 +144,7 @@ public class FoodMenuActivity extends AppCompatActivity {
                 // your code here
 
                 amountMenu2 = position;
-                totalMenu2 = 88 * position;
+                totalMenu2 = 20 * position;
                 totalAmount = totalMenu1 + totalMenu2;
                 String formatAmoutn = NumberFormat.getNumberInstance(Locale.US).format(totalAmount);
                 text.setText("Total : " + formatAmoutn + " บาท");

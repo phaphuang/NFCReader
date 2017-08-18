@@ -49,7 +49,7 @@ import com.learn2crack.nfc.androidbluetoothprint.DeviceListActivity;
 import com.learn2crack.nfc.androidbluetoothprint.UnicodeFormatter;
 
 public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
-    
+
     public static final String TAG = ConfirmSellActivity.class.getSimpleName();
 
     private TextView mCurrentBalance;
@@ -69,7 +69,7 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
     private String status;
 
     private String shopType;
-    private String[] amounts = new String[5];
+    private String[] amounts = new String[8];
 
     protected static final String TAG2 = "TAG";
     private static final int REQUEST_CONNECT_DEVICE = 1;
@@ -125,6 +125,9 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
             amounts[2] = getIntent().getStringExtra("AMOUNT_3");
             amounts[3] = getIntent().getStringExtra("AMOUNT_4");
             amounts[4] = getIntent().getStringExtra("AMOUNT_5");
+            amounts[5] = getIntent().getStringExtra("AMOUNT_6");
+            amounts[6] = getIntent().getStringExtra("AMOUNT_7");
+            amounts[7] = getIntent().getStringExtra("AMOUNT_8");
 
         }
 
@@ -254,6 +257,7 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
 
                     if (status.equals("true")) {
                         //Toast.makeText(ConfirmSellActivity.this, "Update amount of: " + firstName + " " + lastName + " and current balance: " + currentBalance, Toast.LENGTH_SHORT).show();
+                        printBill();
                         printBill();
                         Intent intent = new Intent(ConfirmSellActivity.this, SellfoodActivity.class);
                         startActivity(intent);
@@ -429,14 +433,14 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
 
         String BILL = "";
         try {
-            String testText = shopType + "," + amounts[0] + "," + amounts[1] + "," + amounts[2] + "," + amounts[3] + "," + amounts[4];
+            String testText = shopType + "," + amounts[0] + "," + amounts[1] + "," + amounts[2] + "," + amounts[3] + "," + amounts[4] + "," + amounts[5] + "," + amounts[6];
             Toast.makeText(ConfirmSellActivity.this, testText, Toast.LENGTH_LONG).show();
 
             SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             String strDate = dt.format(new Date());
 
             // OutputStream os = mBluetoothSocket.getOutputStream();
-            BILL = "00000 00000 000000 0000000 0   0\n";
+            BILL = "0000 00000 000000 0000000 0   0\n";
             BILL = BILL + "0   0 0   0 0    0    0    0   0\n";
             BILL = BILL + "0   0 0   0 0    0    0    0   0\n";
             BILL = BILL + "0   0 0   0 0    0    0    0   0\n";
@@ -463,12 +467,12 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
             if (shopType.equals("FOOD")) {
                 if (amounts[0] != null) {
                     int amount = Integer.parseInt(amounts[0]);
-                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Kon Lek", amounts[0], 88 + "", (amount * 88) + "\n");
+                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "SIAW", amounts[0], 20 + "", (amount * 20) + "\n");
                 }
 
                 if (amounts[1] != null) {
                     int amount = Integer.parseInt(amounts[1]);
-                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Song Kon", amounts[1], 88 + "",(amount * 88) + "\n");
+                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Photo", amounts[1], 20 + "",(amount * 20) + "\n");
                 }
             } else if (shopType.equals("BEVERAGE")) {
                 if (amounts[0] != null) {
@@ -478,7 +482,7 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
 
                 if (amounts[1] != null) {
                     int amount = Integer.parseInt(amounts[1]);
-                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Singha", amounts[1], 98 + "", (amount * 98) + "\n");
+                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Singha", amounts[1], 78 + "", (amount * 78) + "\n");
                 }
 
                 if (amounts[2] != null) {
@@ -488,12 +492,24 @@ public class ConfirmSellActivity extends AppCompatActivity implements Runnable {
 
                 if (amounts[3] != null) {
                     int amount = Integer.parseInt(amounts[3]);
-                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Signature1", amounts[3], 188 + "", (amount * 188) + "\n");
+                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "KKJ", amounts[3], 188 + "", (amount * 188) + "\n");
                 }
 
                 if (amounts[4] != null) {
                     int amount = Integer.parseInt(amounts[4]);
-                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Signature2", amounts[4], 188 + "", (amount * 188) + "\n");
+                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "WGW", amounts[4], 188 + "", (amount * 188) + "\n");
+                }
+                if (amounts[5] != null) {
+                    int amount = Integer.parseInt(amounts[5]);
+                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Water", amounts[5], 20 + "", (amount * 20) + "\n");
+                }
+                if (amounts[6] != null) {
+                    int amount = Integer.parseInt(amounts[6]);
+                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Coke", amounts[6], 30 + "", (amount * 30) + "\n");
+                }
+                if (amounts[7] != null) {
+                    int amount = Integer.parseInt(amounts[7]);
+                    BILL = BILL + String.format("%1$-10s %2$-5s %3$-7s %4$5s", "Tobacco", amounts[7], 138 + "", (amount * 138) + "\n");
                 }
             }
 

@@ -8,4 +8,4 @@
     android:layout_centerVertical="true"
     android:textColor="#000301"
     android:padding="10dp"
-    android:textSize="25dp" />
+    android:textSize="18dp" />
